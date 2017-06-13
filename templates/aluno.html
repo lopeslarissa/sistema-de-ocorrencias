@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated and user.is_staff%}
+        <h2> {{ aluno.nome }} </h2>
+        <h5> E-mail: {{ aluno.email }}</h5>
+        <h5> Telefone: {{ aluno.telefone }}</h5>
+        <h5> Turma: {{ aluno.Turma }}</h5>
+        <h5> Curso: {{ aluno.curso }}</h5>
+        <h5> Matricula: {{ aluno.matricula }}</h5>
+
+        <a href="{% url 'editar-aluno' aluno.id %}">Editar</a><br/>
+            <form method="POST" action="{% url 'excluir-aluno' aluno.id %}" class='ui form'>
+                <button type="submit" class="ui verde button">Excluir</button>
+                {% csrf_token %}
+            </form>
+
+        <a href="{% url 'home' %}">Voltar</a>
+    {% else %}
+        <h4>Você não esta logado no sistema</h4>
+        <a href="{% url 'estante:login' %}">Login</a><br/>
+    {% endif %}
+{% endblock content %}

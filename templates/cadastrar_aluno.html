@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated and user.is_staff %}
+        {% if id == None %}
+            <form method="POST" action="{% url 'cadastrar-aluno' %}" class='ui form'>
+        {% else %}
+            <form method="POST" action="{% url 'editar-aluno' id %}" class='ui form'>
+        {% endif %}
+            {% csrf_token %}
+            <label>{{ form.nome.label }}</label>
+            {{ form.nome }}
+                {% if form.nome.errors %}
+                {{ form.nome.errors }}
+            {% endif %}<br/>
+
+            <label>{{ form.email.label }}</label>
+            {{ form.email }}
+            {% if form.email.errors %}
+                {{ form.email.errors }}
+            {% endif %}<br/>
+
+            <label>{{ form.telefone.label }}</label>
+            {{ form.telefone }}
+            {% if form.telefone.errors %}
+                {{ form.telefone.errors }}
+            {% endif %}<br/>
+
+            <label>{{ form.turma.label }}</label>
+            {{ form.turma }}
+            {% if form.turma.errors %}
+                {{ form.turma.errors }}
+            {% endif %}<br/>
+
+            <label>{{ form.curso.label }}</label>
+            {{ form.curso }}
+            {% if form.curso.errors %}
+                {{ form.curso.errors }}
+            {% endif %}<br/>
+
+            <label>{{ form.matricula.label }}</label>
+            {{ form.matricula }}
+            {% if form.matricula.errors %}
+                {{ form.matricula.errors }}
+            {% endif %}<br/>
+
+            <button type="submit" class="ui green button">Salvar</button><br>
+            <a href="{% url 'home' %}">Voltar ao perfil</a>
+        </form>
+    {% else %}
+        <h4>Você não esta logado no sistema</h4>
+        <a href="{% url 'login' %}">Login</a><br/>
+    {% endif %}
+{% endblock content %}

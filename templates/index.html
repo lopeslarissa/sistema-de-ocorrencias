@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="POST" action="{% url 'login' %}" class='ui form'>
+        {% csrf_token %}
+
+        {% if msg %}
+            <div>{{ msg }}</div>
+        {% endif %}
+
+
+        <label>{{ form.username.label }}</label>
+        {{ form.username }}
+        {% if form.username.errors %}
+            {{ form.username.errors }}
+        {% endif %}
+        </br>
+
+
+        <label>{{ form.password.label }}</label>
+        {{ form.password }}
+        {% if form.errors %}
+            {{ form.non_field_errors }}
+        {% endif %}
+        </br>
+
+        <button type="submit" class="ui verde button">Entrar</button></br>
+    </form>
+    <a href="{% url 'cadastrar-professor' %}" >Cadastrar-se</a></br>
+    <a href="{% url 'alterar-status' %}" >Ativar usuário inativo</a>
+{% endblock content %}

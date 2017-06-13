@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.is_authenticated %}
+        {% if id == None %}
+            <form method="POST" action="{% url 'cadastrar-ocorrencia' %}" class='ui form'>
+        {% else %}
+            <form method="POST" action="{% url 'editar-ocorrencia' id %}" class='ui form'>
+        {% endif %}
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="ui green button">Salvar</button><br>
+            <a href="{% url 'home' %}">Voltar ao perfil</a>
+        </form>
+    {% else %}
+        <h4>Você não esta logado no sistema</h4>
+        <a href="{% url 'login' %}">Login</a><br/>
+    {% endif %}
+{% endblock content %}
