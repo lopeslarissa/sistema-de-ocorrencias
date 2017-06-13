@@ -9,7 +9,6 @@ from sistema.models.ocorrencia import Ocorrencia
 
 template = 'cadastrar_aluno.html'
 template2 = 'home.html'
-template3 = 'aluno/'
 
 
 # @method_decorator(login_required(login_url='/sistema/'))
@@ -30,7 +29,7 @@ class CadastraAluno(View):
                 aluno = form.save(commit=False)
                 aluno.excluido = False
                 aluno.save()
-                return redirect(template3 + str(aluno.id) + '/')
+                return redirect(template2)
             else:
                 print(form.errors)
             return render(request, template, {'form': AlunoForm})
@@ -40,7 +39,7 @@ class CadastraAluno(View):
                 aluno = form.save(commit=False)
                 aluno.excluido = False
                 aluno.save()
-                return render(request, template3 + str(aluno.id) + '/', {'msg': 'Aluno Cadastrado com Sucesso!'})
+                return render(request, template2, {'msg': 'Aluno Cadastrado com Sucesso!'})
             else:
                 print(form.errors)
         return render(request, template, {'form': AlunoForm})
@@ -59,8 +58,8 @@ class ExcluirAluno(View):
 class ListarObjetos(View):
     def get(self, request):
         context_dict = {}
-        alunos = Aluno.objects.all()
-        ocorrencias = Ocorrencia.objects.all()
+        alunos = Aluno.objects.all().exclude(excluido=True)
+        ocorrencias = Ocorrencia.objects.all().exclude(excluido=True)
         context_dict['alunos'] = alunos
         context_dict['ocorrencias'] = ocorrencias
         return render(request, template2, context_dict)
@@ -71,6 +70,4 @@ class DetalharAluno(View):
     def get(self, request, id=None):
         aluno = Aluno.objects.get(pk=id)
         context_dict = {'aluno': aluno}
-        return render(request, template3 + aluno.id + '/', context_dict)
-
-
+        return render(request, 'aluno.html', context_dict)

@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% if user.is_authenticated and user.is_staff == False %}
+    {% if user.is_staff %}
+        {% if msg %}
+            <p>{{ msg }}</p>
+        {% endif %}
+        <div>
+            <a href="{% url 'cadastrar-aluno'%}">Cadastrar Aluno</a><br/>
+            {% for aluno in alunos %}
+                <a href="{% url 'aluno' aluno.id %}">{{ aluno.nome }}</a><br/>
+            {%endfor %}
+            <a href="{% url 'logout' %}">Sair</a><br/>
+        </div>
+    {% elif user.is_authenticated %}
         {% if msg %}
             <p>{{ msg }}</p>
         {% endif %}
@@ -14,18 +25,6 @@
                 <button type="submit" class="ui red button">Desativar Conta</button>
                 {% csrf_token %}
             </form>
-            <a href="{% url 'logout' %}">Sair</a><br/>
-        </div>
-    {% endif %}
-    {% if user.is_authenticated and user.is_staff %}
-        {% if msg %}
-            <p>{{ msg }}</p>
-        {% endif %}
-        <div>
-            <a href="{% url 'cadastrar-aluno'%}">Cadastrar Aluno</a><br/>
-            {% for aluno in alunos %}
-                <a href="{% url 'aluno' aluno.id %}">{{ aluno.nome }}</a><br/>
-            {%endfor %}
             <a href="{% url 'logout' %}">Sair</a><br/>
         </div>
     {% else %}

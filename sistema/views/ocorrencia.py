@@ -60,5 +60,5 @@ class DetalharOcorrencia(View):
     def get(self, request, id=None):
         ocorrencia = Ocorrencia.objects.get(pk=id)
         context_dict = {'ocorrencia': ocorrencia}
-        return render(request, template2 + str(ocorrencia.id) + '/', context_dict)
+        return render(request, template2, context_dict)
 
