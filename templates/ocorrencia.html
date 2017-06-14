@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if user.is_authenticated %}
-        <h5> Professor:{{ ocorrencia.professor.nome }} </h5>
+        <h5> Professor:{{ ocorrencia.professor.first_name }} </h5>
         <h5> Aluno:{{ ocorrencia.aluno.nome }} </h5>
         <h5> Turma: {{ ocorrencia.aluno.turma }}</h5>
         <h5> Matricula: {{ ocorrencia.aluno.matricula }}</h5>
@@ -16,9 +16,9 @@
             {% csrf_token %}
         </form>
         
-        <a href="{% url 'home' %}">Voltar</a>
+        <a href="{% url 'index' %}">Voltar</a>
     {% else %}
         <h4>Você não esta logado no sistema</h4>
-        <a href="{% url 'estante:login' %}">Login</a><br/>
+        <a href="{% url 'login' %}">Login</a><br/>
     {% endif %}
 {% endblock content %}

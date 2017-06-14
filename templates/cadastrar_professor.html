@@ -44,12 +44,8 @@
         {% endif %}
 
 
-        <button type="submit" class="ui verde button">Salvar</button>
+        <button type="submit" class="ui green button">Salvar</button>
     </form>
-    {% if user.is_authenticated %}
-        <a href="{% url 'home' %}">Voltar</a>
-    {% else %}
-        <a href="{% url 'login' %}">Voltar</a>
-    {% endif %}
+    <a href="{% url 'index' %}">Voltar</a>
 
 {% endblock content %}

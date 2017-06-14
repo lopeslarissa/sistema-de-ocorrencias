@@ -4,19 +4,19 @@
         <h2> {{ aluno.nome }} </h2>
         <h5> E-mail: {{ aluno.email }}</h5>
         <h5> Telefone: {{ aluno.telefone }}</h5>
-        <h5> Turma: {{ aluno.Turma }}</h5>
+        <h5> Turma: {{ aluno.turma }}</h5>
         <h5> Curso: {{ aluno.curso }}</h5>
         <h5> Matricula: {{ aluno.matricula }}</h5>
 
         <a href="{% url 'editar-aluno' aluno.id %}">Editar</a><br/>
             <form method="POST" action="{% url 'excluir-aluno' aluno.id %}" class='ui form'>
-                <button type="submit" class="ui verde button">Excluir</button>
+                <button type="submit" class="ui red button">Excluir</button>
                 {% csrf_token %}
             </form>
 
-        <a href="{% url 'home' %}">Voltar</a>
+        <a href="{% url 'index' %}">Voltar</a>
     {% else %}
         <h4>Você não esta logado no sistema</h4>
-        <a href="{% url 'estante:login' %}">Login</a><br/>
+        <a href="{% url 'login' %}">Login</a><br/>
     {% endif %}
 {% endblock content %}

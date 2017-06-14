@@ -6,7 +6,7 @@ from sistema.models.professor import Professor
 
 class Ocorrencia(models.Model):
     professor = models.ForeignKey(Professor, blank=True, null=True)
-    aluno = models.ManyToManyField(Aluno)
+    aluno = models.ForeignKey(Aluno)
     disciplina = models.CharField(max_length=250)
     descricao = models.TextField(max_length=1000, verbose_name="Descrição da ocorrência")
     hora = models.TimeField()

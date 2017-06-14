@@ -9,4 +9,3 @@ def UsernameValidator(nome):
     else:
         raise forms.ValidationError('Usuário não existe')
     return professor.username
-

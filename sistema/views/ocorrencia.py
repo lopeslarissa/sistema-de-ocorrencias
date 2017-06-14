@@ -1,64 +1,73 @@
 # coding=utf-8
-from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
 from django.views.generic import View
-from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from sistema.forms.ocorrencia import *
 from sistema.models.professor import Professor
+from sistema.views import ListarObjetos
 
 template = 'cadastrar_ocorrencia.html'
-template2 = 'ocorrencia/'
+template2 = 'ocorrencia.html'
+template3 = 'index.html'
 
 
-# @method_decorator(login_required(login_url='/sistema/'))
 class CadastraOcorrencia(View):
     def get(self, request, id = None):
-        if id:
-            ocorrencia = Ocorrencia.objects.get(pk=id)
-            form = OcorrenciaForm(instance=ocorrencia)
-        else:
-            form = OcorrenciaForm()
-        return render(request, template, {'form': form})
-
-    def post(self, request, id = None):
-        if id:
-            ocorrencia = Ocorrencia.objects.get(pk=id)
-            form = OcorrenciaForm(instance=ocorrencia, data=request.POST)
-            if form.is_valid():
-                ocorrencia = form.save(commit=False)
-                professor = Professor.objects.get(pk=request.user.id)
-                ocorrencia.professor = professor
-                ocorrencia.save()
-                return redirect(template2 + str(ocorrencia.id)+'/')
+        if request.user.is_authenticated:
+            if id:
+                ocorrencia = Ocorrencia.objects.get(pk=id)
+                form = OcorrenciaForm(instance=ocorrencia)
             else:
-                print(form.errors)
+                form = OcorrenciaForm()
             return render(request, template, {'form': form})
         else:
-            form = OcorrenciaForm(data=request.POST)
-            if form.is_valid():
-                ocorrencia = form.save(commit=False)
-                professor = Professor.objects.get(pk=request.user.id)
-                ocorrencia.professor = professor
-                ocorrencia.save()
-                return render(request, template2 + str(ocorrencia.id) + '/', {'msg': 'Ocorrência Cadastrada com Sucesso!'})
+            return HttpResponseRedirect('login')
+
+    def post(self, request, id = None):
+        if request.user.is_authenticated:
+            if id:
+                ocorrencia = Ocorrencia.objects.get(pk=id)
+                form = OcorrenciaForm(instance=ocorrencia, data=request.POST)
+                if form.is_valid():
+                    professor = Professor.objects.get(pk=request.user.id)
+                    ocorrencia = form.save(commit=False)
+                    ocorrencia.professor = professor
+                    ocorrencia.save()
+                    return render(request, template2, {'msg': 'Ocorrência Alterada com Sucesso!',  'ocorrencia': ocorrencia})
+                else:
+                    print(form.errors)
+                return render(request, template, {'form': form})
             else:
-                print(form.errors)
-        return render(request, template, {'form': form})
+                form = OcorrenciaForm(data=request.POST)
+                if form.is_valid():
+                    ocorrencia = form.save(commit=False)
+                    professor = Professor.objects.get(pk=request.user.id)
+                    ocorrencia.professor = professor
+                    ocorrencia.save()
+                    return render(request, template2, {'msg': 'Ocorrência Cadastrada com Sucesso!',  'ocorrencia': ocorrencia})
+                else:
+                    print(form.errors)
+            return render(request, template, {'form': form})
+        else:
+            return HttpResponseRedirect('login')
 
 
 class ExcluirOcorrencia(View):
-    def get(self, request, id=None):
-        ocorrencia = Ocorrencia.objects.get(pk=id)
-        ocorrencia.excluido = True
-        ocorrencia.save()
-        return render(request, template2 + str(ocorrencia.id) + '/')
+    def post(self, request, id=None):
+        if request.user.is_authenticated:
+            ocorrencia = Ocorrencia.objects.get(pk=id)
+            ocorrencia.excluido = True
+            ocorrencia.save()
+            return ListarObjetos(request)
+        else:
+            return HttpResponseRedirect('login')
 
 
-# @method_decorator(login_required(login_url='/sistema/'))
 class DetalharOcorrencia(View):
     def get(self, request, id=None):
-        ocorrencia = Ocorrencia.objects.get(pk=id)
-        context_dict = {'ocorrencia': ocorrencia}
-        return render(request, template2, context_dict)
-
+        if request.user.is_authenticated:
+            ocorrencia = Ocorrencia.objects.get(pk=id)
+            context_dict = {'ocorrencia': ocorrencia}
+            return render(request, template2, context_dict)
+        else:
+            return HttpResponseRedirect('login')
