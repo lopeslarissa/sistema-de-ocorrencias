@@ -16,9 +16,10 @@ class CadastraAluno(View):
             if id:
                 aluno = Aluno.objects.get(pk=id)
                 form = AlunoForm(instance=aluno)
+                return render(request, template, {'form': form, 'id': id})
             else:
                 form = AlunoForm()
-            return render(request, template, {'form': form})
+                return render(request, template, {'form': form})
         else:
             return HttpResponseRedirect('login')
 

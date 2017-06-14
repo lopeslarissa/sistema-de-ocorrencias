@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if user.is_authenticated %}
-        {% if id == None %}
+        {% if not id %}
             <form method="POST" action="{% url 'cadastrar-ocorrencia' %}" class='ui form'>
         {% else %}
             <form method="POST" action="{% url 'editar-ocorrencia' id %}" class='ui form'>

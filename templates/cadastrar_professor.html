@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-        {% if id == None %}
-            <form method="POST" action="{% url 'cadastrar-professor' %}" class='ui form'>
-        {% else %}
-            <form method="POST" action="{% url 'cadastrar-professor' id %}" class='ui form'>
-        {% endif %}
+        <form method="POST" action="{% url 'cadastrar-professor' %}" class='ui form'>
+        
         {% csrf_token %}
 
         {% if msg %}

@@ -17,17 +17,18 @@ class CadastraOcorrencia(View):
             if id:
                 ocorrencia = Ocorrencia.objects.get(pk=id)
                 form = OcorrenciaForm(instance=ocorrencia)
+                return render(request, template, {'form': form, 'id': id})
             else:
                 form = OcorrenciaForm()
-            return render(request, template, {'form': form})
+                return render(request, template, {'form': form})
         else:
             return HttpResponseRedirect('login')
 
     def post(self, request, id = None):
         if request.user.is_authenticated:
             if id:
-                ocorrencia = Ocorrencia.objects.get(pk=id)
-                form = OcorrenciaForm(instance=ocorrencia, data=request.POST)
+                ocorrencia_bd = Ocorrencia.objects.get(pk=id)
+                form = OcorrenciaForm(instance=ocorrencia_bd, data=request.POST )
                 if form.is_valid():
                     professor = Professor.objects.get(pk=request.user.id)
                     ocorrencia = form.save(commit=False)
@@ -36,7 +37,7 @@ class CadastraOcorrencia(View):
                     return render(request, template2, {'msg': 'Ocorrência Alterada com Sucesso!',  'ocorrencia': ocorrencia})
                 else:
                     print(form.errors)
-                return render(request, template, {'form': form})
+                    return render(request, template, {'form': form})
             else:
                 form = OcorrenciaForm(data=request.POST)
                 if form.is_valid():
