@@ -5,30 +5,45 @@
             <p>{{ msg }}</p>
         {% endif %}
         <div>
-            <a href="{% url 'cadastrar-aluno'%}">Cadastrar Aluno</a><br/>
-            {% for aluno in alunos %}
-                <a href="{% url 'aluno' aluno.id %}">{{ aluno.nome }}</a><br/>
-            {%endfor %}
-            <a href="{% url 'logout' %}">Sair</a><br/>
+            <div class="thirteen wide column">
+                <h2>Sistema de Ocorrência</h2>
+                <spam>Alunos Cadastrados</spam>
+                <ul class="ui divided relaxed list">
+                    {% for aluno in alunos %}
+                        <div class="item">
+                            <i class="large user middle aligned icon"></i>
+                            <div class="content">
+                                <p><a href="{% url 'aluno' aluno.id %}">{{ aluno.nome }}</a></p>
+                                <div class="description">{{ aluno.matricula }}</div>
+                            </div>
+                        </div>
+                    {%endfor %}
+                </ul>
+            </div>
         </div>
     {% elif user.is_authenticated %}
         {% if msg %}
             <p>{{ msg }}</p>
         {% endif %}
         <div>
-            <a href="{% url 'editar-professor' %}">Editar Perfil</a><br/>
-            <a href="{% url 'cadastrar-ocorrencia' %}">Cadastrar Ocorrencia</a><br/>
-            {% for ocorrencia in ocorrencias %}
-                <a href="{% url 'ocorrencia' ocorrencia.id %}">{{ ocorrencia.descricao }}</a><br/>
-            {%endfor %}
-            <form method="POST" action="{% url 'desativar-professor' %}" class='ui form'>
-                <button type="submit" class="ui red button">Desativar Conta</button>
-                {% csrf_token %}
-            </form>
-            <a href="{% url 'logout' %}">Sair</a><br/>
+            <div class="thirteen wide column">
+                <h2 >Sistema de Ocorrência</h2>
+                <spam>Ocorrências Registradas</spam>
+                <ul class="ui divided relaxed list">
+                    {% for ocorrencia in ocorrencias %}
+                        <div class="item">
+                            <i class="large sticky note outline middle aligned icon"></i>
+                            <div class="content">
+                                <p><a href="{% url 'ocorrencia' ocorrencia.id %}">{{ ocorrencia.aluno.nome }}</a></p>
+                                <div class="description">{{ ocorrencia.descricao }}</div>
+                            </div>
+                        </div>
+                    {%endfor %}
+                </ul>
+            </div>
         </div>
     {% else %}
-        <h4>Você não esta logado no sistema</h4>
-        <a href="{% url 'login' %}">Login</a><br/>
+        <h4>Você não tem permissão para acessar esta página!</h4>
+        <a href="{% url 'home' %}">Voltar</a><br/>
     {% endif %}
 {% endblock content %}

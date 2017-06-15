@@ -1,5 +1,6 @@
 # coding=utf-8
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.views.generic import View
 from django.shortcuts import render
 from sistema.forms.aluno import *
@@ -12,7 +13,7 @@ template3 = 'aluno.html'
 
 class CadastraAluno(View):
     def get(self, request, id=None):
-        if request.user.is_authenticated:
+        if request.user.is_superuser:
             if id:
                 aluno = Aluno.objects.get(pk=id)
                 form = AlunoForm(instance=aluno)
@@ -21,10 +22,10 @@ class CadastraAluno(View):
                 form = AlunoForm()
                 return render(request, template, {'form': form})
         else:
-            return HttpResponseRedirect('login')
+            return HttpResponseRedirect(reverse('index'))
 
     def post(self, request, id=None):
-        if request.user.is_authenticated:
+        if request.user.is_superuser:
             if id:
                 aluno = Aluno.objects.get(pk=id)
                 form = AlunoForm(instance=aluno, data=request.POST)
@@ -47,17 +48,18 @@ class CadastraAluno(View):
                     print(form.errors)
             return render(request, template, {'form': AlunoForm})
         else:
-            return HttpResponseRedirect('login')
+            return HttpResponseRedirect(reverse('index'))
+
 
 class ExcluirAluno(View):
     def post(self, request, id=None):
-        if request.user.is_authenticated:
+        if request.user.is_superuser:
             aluno = Aluno.objects.get(pk=id)
             aluno.excluido = True
             aluno.save()
             return ListarObjetos(request)
         else:
-            return HttpResponseRedirect('login')
+            return HttpResponseRedirect(reverse('index'))
 
 
 def ListarObjetos(request):
@@ -69,14 +71,14 @@ def ListarObjetos(request):
         context_dict['ocorrencias'] = ocorrencias
         return render(request, template2, context_dict)
     else:
-        return HttpResponseRedirect('login')
+        return HttpResponseRedirect(reverse('login'))
 
 
 class DetalharAluno(View):
     def get(self, request, id=None):
-        if request.user.is_authenticated:
+        if request.user.is_superuser:
             aluno = Aluno.objects.get(pk=id)
             context_dict = {'aluno': aluno}
             return render(request, template3, context_dict)
         else:
-            return HttpResponseRedirect('login')
+            return HttpResponseRedirect(reverse('index'))

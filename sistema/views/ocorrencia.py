@@ -1,4 +1,5 @@
 # coding=utf-8
+from django.urls import reverse
 from django.views.generic import View
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -22,7 +23,7 @@ class CadastraOcorrencia(View):
                 form = OcorrenciaForm()
                 return render(request, template, {'form': form})
         else:
-            return HttpResponseRedirect('login')
+            return HttpResponseRedirect(reverse('index'))
 
     def post(self, request, id = None):
         if request.user.is_authenticated:
@@ -50,7 +51,7 @@ class CadastraOcorrencia(View):
                     print(form.errors)
             return render(request, template, {'form': form})
         else:
-            return HttpResponseRedirect('login')
+            return HttpResponseRedirect(reverse('index'))
 
 
 class ExcluirOcorrencia(View):
@@ -61,7 +62,7 @@ class ExcluirOcorrencia(View):
             ocorrencia.save()
             return ListarObjetos(request)
         else:
-            return HttpResponseRedirect('login')
+            return HttpResponseRedirect(reverse('index'))
 
 
 class DetalharOcorrencia(View):
@@ -71,4 +72,4 @@ class DetalharOcorrencia(View):
             context_dict = {'ocorrencia': ocorrencia}
             return render(request, template2, context_dict)
         else:
-            return HttpResponseRedirect('login')
+            return HttpResponseRedirect(reverse('index'))

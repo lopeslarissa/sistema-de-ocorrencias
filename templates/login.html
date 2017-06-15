@@ -2,28 +2,27 @@
 {% block content %}
     <form method="POST" action="{% url 'login' %}" class='ui form'>
         {% csrf_token %}
-
         {% if msg %}
             <div>{{ msg }}</div>
         {% endif %}
-
-
-        <label>{{ form.username.label }}</label>
-        {{ form.username }}
-        {% if form.username.errors %}
-            {{ form.username.errors }}
-        {% endif %}
-        </br>
-
-
-        <label>{{ form.password.label }}</label>
-        {{ form.password }}
-        {% if form.errors %}
-            {{ form.non_field_errors }}
-        {% endif %}
-        </br>
-
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        {% for field in form.visible_fields %}
+            <div class="field">
+                <label>{{ field.label }}:</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <span class="ui pointing label">Ajuda: {{ field.help_text }}</span>
+                {% endif %}
+                </br>
+                {% if field.errors %}
+                    <span class="ui pointing red label">
+                {{ field.errors }}
+            </span>
+                {% endif %}
+            </div>
+        {% endfor %}
         <button type="submit" class="ui green button">Entrar</button></br>
     </form>
-    <a href="{% url 'cadastrar-professor' %}" >Cadastrar-se</a></br>
 {% endblock content %}

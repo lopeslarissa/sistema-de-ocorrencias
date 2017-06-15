@@ -1,16 +1,63 @@
-{% load static %}
-<html>
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OWL - Sistema de Ocorrência</title>
     <head>
-        <link type="text/css" rel="stylesheet" href="{% static 'semantic/semantic.css' %}"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'semantic/dist/semantic.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+        <script src="{% static 'js/jquery-3.1.0.js' %}"></script>
+        <script src="{% static 'semantic/dist/semantic.min.js' %}"></script>
+        <script src="{% static 'js/call.js' %}"></script>
     </head>
-    <body>
-        <div class="grid ui centered">
-            <div class="six wide column">
-                <h1>Sistema de Ocorrência</h1>
-                {% block content %}
-                {% endblock %}
+</head>
+<body>
+<header>
+    <ul class= "ui massive stackable borderless menu">
+		{% if user.is_superuser %}
+			<li><a class="item" href="{% url 'index' %}"><h3>OWL</h3></a></li>
+			<li><a class="item" href="{% url 'cadastrar-aluno' %}">Novo Aluno</a></li>
+            <div class="right menu">
+			    <li><a class="item" href="{% url 'logout' %}">Sair</a></li>
             </div>
+        {% elif user.is_authenticated %}
+			<li><a class="item" href="{% url 'index' %}"><h3>OWL</h3></a></li>
+            <li><a class="item" href="{% url 'cadastrar-professor' %}">Editar Perfil</a></li>
+            <li><a class="item" href="{% url 'cadastrar-ocorrencia' %}">Nova Ocorrência</a></li>
+            <div class="right menu">
+                <li><a class="item" href="{% url 'logout' %}">Sair</a></li>
+            </div>
+        {% else %}
+            <li><a class="item" href="{% url 'index' %}"><h3>OWL</h3></a></li>
+            <div class="right menu">
+                <li><a class="item" href="{% url 'cadastrar-professor' %}"> Registre-se </a></li>
+            </div>
+        {% endif %}
+    </ul>
+</header>
+<article class="ui container">
+    {% block content %}
+    {% endblock %}
+</article>
+<footer class="ui black inverted vertical footer relaxed segment">
+    <div class="ui five column middle aligned centered inverted divided stackable grid">
+        <div class="two wide column">
+            <h2 class="ui inverted icon header">
+                <i class="icon"></i>
+                <div class="content">
+                    <img src="{% static 'imgs/owl.png' %}">
+                </div>
+            </h2>
         </div>
-        <script type="text/javascript" src="{% static 'semantic/semantic.js' %}"></script>
-    </body>
+        <div class="three wide column">
+            <ul class="ui divided celled relaxed inverted list">
+                <li class="item"><a href="https://github.com/lopeslarissa/" target="_blank"><i
+                        class="ui github large icon"></i>Github @lopeslarissa</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+</body>
 </html>

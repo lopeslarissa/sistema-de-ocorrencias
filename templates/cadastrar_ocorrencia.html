@@ -7,12 +7,28 @@
             <form method="POST" action="{% url 'editar-ocorrencia' id %}" class='ui form'>
         {% endif %}
             {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="ui green button">Salvar</button><br>
-            <a href="{% url 'index' %}">Voltar</a>
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            {% for field in form.visible_fields %}
+                <div class="field">
+                    <label>{{ field.label }}:</label>
+                    {{ field }}
+                    {% if field.help_text %}
+                        <span class="ui pointing label">Ajuda: {{ field.help_text }}</span>
+                    {% endif %}
+                    </br>
+                    {% if field.errors %}
+                        <span class="ui pointing red label">
+                    {{ field.errors }}
+                </span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <button type="submit" class="right floated ui button">Salvar</button>
         </form>
     {% else %}
-        <h4>Você não esta logado no sistema</h4>
-        <a href="{% url 'login' %}">Login</a><br/>
+        <h4>Você não tem permissão para acessar esta página!</h4>
+        <a href="{% url 'home' %}">Voltar</a><br/>
     {% endif %}
 {% endblock content %}

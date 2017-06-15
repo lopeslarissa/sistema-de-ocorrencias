@@ -1,22 +1,23 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if user.is_authenticated and user.is_staff%}
-        <h2> {{ aluno.nome }} </h2>
-        <h5> E-mail: {{ aluno.email }}</h5>
-        <h5> Telefone: {{ aluno.telefone }}</h5>
-        <h5> Turma: {{ aluno.turma }}</h5>
-        <h5> Curso: {{ aluno.curso }}</h5>
-        <h5> Matricula: {{ aluno.matricula }}</h5>
-
-        <a href="{% url 'editar-aluno' aluno.id %}">Editar</a><br/>
+        <div class="thirteen wide column">
+            <a href="{% url 'editar-aluno' aluno.id %}"><button class="ui right floated button">Editar</button></a>
+            <ul class="ui divided relaxed list">
+                <li class="item"><p><span class="ui small header"> Nome:</span>{{ aluno.nome }}</p></li>
+                <li class="item"><p><span class="ui small header"> E-mail:</span>{{ aluno.email }}</p></li>
+                <li class="item"><p><span class="ui small header"> Telefone:</span>{{ aluno.telefone }}</p></li>
+                <li class="item"><p><span class="ui small header"> Turma:</span>{{ aluno.turma }}</p></li>
+                <li class="item"><p><span class="ui small header"> Curso:</span>{{ aluno.curso }}</p></li>
+                <li class="item"><p><span class="ui small header"> Matrícula:</span>{{ aluno.matricula }}</p></li>
+            </ul>
             <form method="POST" action="{% url 'excluir-aluno' aluno.id %}" class='ui form'>
-                <button type="submit" class="ui red button">Excluir</button>
+                <button type="submit" class="ui right floated button">Excluir</button>
                 {% csrf_token %}
             </form>
-
-        <a href="{% url 'index' %}">Voltar</a>
+        </div>
     {% else %}
-        <h4>Você não esta logado no sistema</h4>
-        <a href="{% url 'login' %}">Login</a><br/>
+        <h4>Você não tem permissão para acessar esta página!</h4>
+        <a href="{% url 'home' %}">Voltar</a><br/>
     {% endif %}
 {% endblock content %}

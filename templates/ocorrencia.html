@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if user.is_authenticated %}
-        <h5> Professor:{{ ocorrencia.professor.first_name }} </h5>
-        <h5> Aluno:{{ ocorrencia.aluno.nome }} </h5>
-        <h5> Turma: {{ ocorrencia.aluno.turma }}</h5>
-        <h5> Matricula: {{ ocorrencia.aluno.matricula }}</h5>
-        <h5> Disciplina: {{ ocorrencia.disciplina }}</h5>
-        <h5> Descrição: {{ ocorrencia.descricao }}</h5>
-        <h5> Data: {{ ocorrencia.data }}</h5>
-        <h5> Hora: {{ ocorrencia.hora }}</h5>
-        
-        <a href="{% url 'editar-ocorrencia' ocorrencia.id %}">Editar</a><br/>
-        <form method="POST" action="{% url 'excluir-ocorrencia' ocorrencia.id %}" class='ui form'>
-            <button type="submit" class="ui red button">Excluir</button>
-            {% csrf_token %}
-        </form>
-        
-        <a href="{% url 'index' %}">Voltar</a>
+        <div class="thirteen wide column">
+            <a href="{% url 'editar-ocorrencia' ocorrencia.id %}"><button class="ui right floated button">Editar</button></a>
+            <ul class="ui divided relaxed list">
+                <li class="item"><p><span class="ui small header"> Professor:</span>{{ ocorrencia.professor.first_name }}</p></li>
+                <li class="item"><p><span class="ui small header"> Aluno:</span>{{ ocorrencia.aluno.nome }}</p></li>
+                <li class="item"><p><span class="ui small header"> Turma:</span>{{ ocorrencia.aluno.turma }}</p></li>
+                <li class="item"><p><span class="ui small header"> Matrícula:</span>{{ ocorrencia.aluno.matricula }}</p></li>
+                <li class="item"><p><span class="ui small header"> Disciplina:</span>{{ ocorrencia.disciplina }}</p></li>
+                <li class="item"><p><span class="ui small header"> Descrição:</span>{{ ocorrencia.descricao }}</p></li>
+                <li class="item"><p><span class="ui small header"> Hora:</span>{{ ocorrencia.hora }}</p></li>
+                <li class="item"><p><span class="ui small header"> Data:</span>{{ ocorrencia.data }}</p></li>
+            </ul>
+            <form method="POST" action="{% url 'excluir-ocorrencia' ocorrencia.id %}" class='ui form'>
+                <button type="submit" class="ui right floated button">Excluir</button>
+                {% csrf_token %}
+            </form>
+        </div>
     {% else %}
-        <h4>Você não esta logado no sistema</h4>
-        <a href="{% url 'login' %}">Login</a><br/>
+        <h4>Você não tem permissão para acessar esta página!</h4>
+        <a href="{% url 'home' %}">Voltar</a><br/>
     {% endif %}
 {% endblock content %}

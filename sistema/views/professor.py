@@ -1,4 +1,5 @@
 # coding=utf-8
+from django.urls import reverse
 from django.views.generic import View
 from django.contrib.auth import login, logout, authenticate
 from django.shortcuts import render
@@ -22,7 +23,6 @@ class CadastraProfessor(View):
 
     def post(self, request):
         id = request.user.id
-        print(id)
         if id:
             professor = Professor.objects.get(pk=id)
             form = ProfessorEditForm(instance=professor, data=request.POST)
@@ -44,7 +44,7 @@ class CadastraProfessor(View):
                 professor.set_password(request.POST['password'])
                 professor.is_active = True
                 professor.save()
-                return HttpResponseRedirect('login')
+                return HttpResponseRedirect(reverse('index'))
             else:
                 print(form.errors)
             return render(request, template, {'form': ProfessorForm})
@@ -58,6 +58,6 @@ class DesativarProfessor(View):
             ativo.is_active = False
             ativo.save()
             logout(request)
-            return HttpResponseRedirect('login')
+            return HttpResponseRedirect(reverse('index'))
         else:
-            return HttpResponseRedirect('login')
+            return HttpResponseRedirect(reverse('index'))
