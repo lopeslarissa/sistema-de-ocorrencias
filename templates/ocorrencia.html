@@ -2,7 +2,7 @@
 {% block content %}
     {% if user.is_authenticated %}
         <div class="thirteen wide column">
-            <a href="{% url 'editar-ocorrencia' ocorrencia.id %}"><button class="ui right floated button">Editar</button></a>
+            <a class="ui right floated button" href="{% url 'editar-ocorrencia' ocorrencia.id %}">Editar</a></br>
             <ul class="ui divided relaxed list">
                 <li class="item"><p><span class="ui small header"> Professor:</span>{{ ocorrencia.professor.first_name }}</p></li>
                 <li class="item"><p><span class="ui small header"> Aluno:</span>{{ ocorrencia.aluno.nome }}</p></li>
@@ -20,6 +20,6 @@
         </div>
     {% else %}
         <h4>Você não tem permissão para acessar esta página!</h4>
-        <a href="{% url 'home' %}">Voltar</a><br/>
+        <a href="{% url 'index' %}">Voltar</a><br/>
     {% endif %}
 {% endblock content %}

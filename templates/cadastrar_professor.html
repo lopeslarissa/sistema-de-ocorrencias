@@ -2,7 +2,7 @@
 {% block content %}
     {% if user.is_authenticated %}
         <form method="POST" action="{% url 'desativar-professor' %}" class='ui form'>
-            <button type="submit" class=" right floated ui button">Desativar Conta</button>
+            <button type="submit" class=" right floated ui button">Desativar Conta</button></br>
             {% csrf_token %}
         </form>
     {% endif %}

@@ -33,7 +33,7 @@ class CadastraProfessor(View):
                 form.save()
                 user = authenticate(username=professor.username, password=request.POST['password'])
                 login(request, user)
-                return render(request, template2, {'msg': 'Informações alteradas com sucesso!'})
+                return HttpResponseRedirect(reverse('index'))
             else:
                 print(form.errors)
             return render(request, template, {'form': ProfessorEditForm})
