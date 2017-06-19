@@ -14,7 +14,7 @@ class Ocorrencia(models.Model):
     excluido = models.BooleanField(verbose_name="Excluído", default=False)
 
     def __unicode__(self):
-        return '%s | %s' % self.nome, self.descricao
+        return '%s' % self.descricao
 
     class Meta:
         app_label = 'sistema'
