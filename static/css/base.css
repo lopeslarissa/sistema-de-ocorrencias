@@ -19,15 +19,12 @@ ul.errorlist > li, ul.errorlist {
 }
 
 article {
-    min-height: 65%;
+    min-height: 75%;
     padding-top: 2%;
     padding-bottom: 4%;
 }
 
-footer {
-    min-height: 20%;
-}
-
-owl{
-	max-width: 50%;
+.rodape {
+	min-height: 20%;
+    bottom: 0px !important;
 }

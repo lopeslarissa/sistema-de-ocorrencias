@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+    <h3>Entrar</h3>
     <form method="POST" action="{% url 'login' %}" class='ui form'>
         {% csrf_token %}
         {% if msg %}

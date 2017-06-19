@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if user.is_authenticated %}
+        <h3>Dados da Ocorrência</h3>
         <div class="thirteen wide column">
             <a class="ui right floated button" href="{% url 'editar-ocorrencia' ocorrencia.id %}">Editar</a></br>
             <ul class="ui divided relaxed list">
