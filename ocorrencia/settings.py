@@ -25,7 +25,7 @@ SECRET_KEY = '813&rla315a3kfb#xr@4vq#%+qk^#p*p7+m7geq9)+1(8jli(8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['http://lopes.pythonanywhere.com/']
 
 
 # Application definition
@@ -128,5 +128,5 @@ STATICFILES_DIRS = (
     STATIC_PATH,
 )
 
-LOGIN_URL = '/sistema/login/'
-LOGIN_REDIRECT_URL = '/sistema/'
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT_URL = '/'
