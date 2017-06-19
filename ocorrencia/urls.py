@@ -19,5 +19,5 @@ from sistema.urls import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', include('sistema.urls')),
+    url(r'^', include('sistema.urls')),
 ]
