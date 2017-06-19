@@ -19,6 +19,5 @@ from sistema.urls import *
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^sistema/', include('sistema.urls')),
-    url(r'', TemplateView.as_view(template_name='404.html'), name='404'),
+    url(r'', include('sistema.urls')),
 ]
