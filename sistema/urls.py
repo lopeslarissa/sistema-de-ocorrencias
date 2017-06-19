@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^editar-professor/$', CadastraProfessor.as_view(), name='editar-professor'),
 
     url(r'^login', login, {'template_name': 'login.html'}, name='login'),
-    url(r'^logout', logout, {'next_page': '/sistema/login/'}, name='logout'),
+    url(r'^logout', logout, {'next_page': '/login/'}, name='logout'),
 
     url(r'^$', views.ListarObjetos, name='index'),
     url(r'^home/$', views.ListarObjetos, name='index'),
