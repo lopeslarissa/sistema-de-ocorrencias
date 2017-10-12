@@ -1,3 +1,3 @@
-from sistema.views.aluno import *
-from sistema.views.ocorrencia import *
-from sistema.views.professor import *
+from sistema.views.aluno import AlunoCreateView, AlunoUpdateView, AlunoDetailView, AlunoDeleteView, AlunoListView
+from sistema.views.ocorrencia import OcorrenciaCreateView, OcorrenciaUpdateView, OcorrenciaDeleteView, OcorrenciaDetailView, OcorrenciaListView
+from sistema.views.professor import ProfessorCreateView, ProfessorUpdateView, ProfessorDeleteView

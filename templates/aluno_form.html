@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     {% if user.is_authenticated and user.is_staff %}
-        {% if id == None %}
+        {% if pk == None %}
             <h3>Cadastro de Aluno</h3>
         {% else %}
             <h3>Edição de Aluno</h3>

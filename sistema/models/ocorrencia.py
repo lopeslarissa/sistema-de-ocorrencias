@@ -8,6 +8,15 @@ from sistema.models.professor import Professor
 
 
 class Ocorrencia(models.Model):
+    """
+    :param professor: models.ForeignKey(Professor, blank=True, null=True)
+    :param aluno: models.ForeignKey(Aluno)
+    :param disciplina: models.CharField(max_length=250)
+    :param descricao: models.TextField(max_length=1000, verbose_name="Descrição da ocorrência")
+    :param hora: models.TimeField()
+    :param data: models.DateField()
+    :param excluido: models.BooleanField(verbose_name="Excluído", default=False)
+    """
     professor = models.ForeignKey(Professor, blank=True, null=True)
     aluno = models.ForeignKey(Aluno)
     disciplina = models.CharField(max_length=250)
