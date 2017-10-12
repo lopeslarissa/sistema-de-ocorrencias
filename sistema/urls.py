@@ -7,24 +7,25 @@ from sistema.views.ocorrencia import *
 from django.contrib.auth.views import login, logout
 
 urlpatterns = [
-    url(r'^excluir-aluno/(?P<id>\d+)/$', ExcluirAluno.as_view(), name='excluir-aluno'),
-    url(r'^cadastrar-aluno/$', CadastraAluno.as_view(), name='cadastrar-aluno'),
-    url(r'^editar-aluno/(?P<id>\d+)/$', CadastraAluno.as_view(), name='editar-aluno'),
-    url(r'^aluno/(?P<id>\d+)/$', DetalharAluno.as_view(), name='aluno'),
+    url(r'^excluir-aluno/(?P<pk>\d+)/$', AlunoDeleteView.as_view(), name='aluno-delete'),
+    url(r'^cadastrar-aluno/$', AlunoCreateView.as_view(), name='aluno-create'),
+    url(r'^editar-aluno/(?P<pk>\d+)/$', AlunoUpdateView.as_view(), name='aluno-update'),
+    url(r'^vizualizar-aluno/(?P<pk>\d+)/$', AlunoDetailView.as_view(), name='aluno-detail'),
+    url(r'^listar-aluno/$', AlunoListView.as_view(), name='aluno-list'),
 
-    url(r'^excluir-ocorrencia/(?P<id>\d+)/$', ExcluirOcorrencia.as_view(), name='excluir-ocorrencia'),
-    url(r'^cadastrar-ocorrencia/$', CadastraOcorrencia.as_view(), name='cadastrar-ocorrencia'),
-    url(r'^editar-ocorrencia/(?P<id>\d+)/$', CadastraOcorrencia.as_view(), name='editar-ocorrencia'),
-    url(r'^ocorrencia/(?P<id>\d+)/$', DetalharOcorrencia.as_view(), name='ocorrencia'),
+    url(r'^excluir-ocorrencia/(?P<pk>\d+)/$', OcorrenciaDeleteView.as_view(), name='ocorrencia-delete'),
+    url(r'^cadastrar-ocorrencia/$', OcorrenciaCreateView.as_view(), name='ocorrencia-create'),
+    url(r'^editar-ocorrencia/(?P<pk>\d+)/$', OcorrenciaUpdateView.as_view(), name='ocorrencia-update'),
+    url(r'^vizualizar-ocorrencia/(?P<pk>\d+)/$', OcorrenciaDetailView.as_view(), name='ocorrencia-detail'),
+    url(r'^listar-ocorrencia/$', OcorrenciaListView.as_view(), name='ocorrencia-list'),
 
-    url(r'^desativar-professor/$', DesativarProfessor.as_view(), name='desativar-professor'),
-    url(r'^cadastrar-professor/$', CadastraProfessor.as_view(), name='cadastrar-professor'),
-    url(r'^editar-professor/$', CadastraProfessor.as_view(), name='editar-professor'),
+    url(r'^desativar-professor/$', ProfessorDeleteView.as_view(), name='professor-delete'),
+    url(r'^cadastrar-professor/$', ProfessorCreateView.as_view(), name='professor-create'),
+    url(r'^editar-professor/$', ProfessorUpdateView.as_view(), name='professor-update'),
 
     url(r'^login', login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout', logout, {'next_page': '/login/'}, name='logout'),
 
-    url(r'^$', views.ListarObjetos, name='index'),
-    url(r'^home/$', views.ListarObjetos, name='index'),
+    url(r'^$', OcorrenciaListView.as_view(), name='index'),
     url(r'', TemplateView.as_view(template_name='404.html'), name='404'),
 ]

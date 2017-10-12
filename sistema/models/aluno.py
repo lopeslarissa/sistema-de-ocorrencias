@@ -1,5 +1,6 @@
 # coding: utf-8
 from django.db import models
+from django.urls import reverse
 
 
 class Aluno(models.Model):
@@ -13,6 +14,9 @@ class Aluno(models.Model):
 
     def __unicode__(self):
         return self.nome
+
+    def get_absolute_url(self):
+        return reverse('aluno-detail', kwargs={'pk': self.pk})
 
     class Meta:
         app_label = 'sistema'

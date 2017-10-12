@@ -2,14 +2,14 @@
 {% block content %}
     {% if user.is_authenticated %}
         <h3>Edição de Professor</h3>
-        <form method="POST" action="{% url 'desativar-professor' %}" class='ui form'>
+        <form method="POST" action="{% url 'professor-delete' %}" class='ui form'>
             <button type="submit" class=" right floated ui button">Desativar Conta</button></br>
             {% csrf_token %}
         </form>
     {% else %}
         <h3>Cadastro de Professor</h3>
     {% endif %}
-    <form method="POST" action="{% url 'cadastrar-professor' %}" class='ui form'>
+    <form method="POST" action="" class='ui form'>
         {% csrf_token %}
         {% if msg %}
             <div>{{ msg }}</div>

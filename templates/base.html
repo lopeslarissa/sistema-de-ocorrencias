@@ -19,21 +19,22 @@
     <ul class= "ui massive stackable borderless menu">
 		{% if user.is_superuser %}
 			<li><a class="item" href="{% url 'index' %}"><h3>OWL</h3></a></li>
-			<li><a class="item" href="{% url 'cadastrar-aluno' %}">Novo Aluno</a></li>
+			<li><a class="item" href="{% url 'aluno-create' %}">Novo Aluno</a></li>
+            <li><a class="item" href="{% url 'aluno-list' %}">Alunos Cadastrados</a></li>
             <div class="right menu">
 			    <li><a class="item" href="{% url 'logout' %}">Sair</a></li>
             </div>
         {% elif user.is_authenticated %}
 			<li><a class="item" href="{% url 'index' %}"><h3>OWL</h3></a></li>
-            <li><a class="item" href="{% url 'cadastrar-professor' %}">Editar Perfil</a></li>
-            <li><a class="item" href="{% url 'cadastrar-ocorrencia' %}">Nova Ocorrência</a></li>
+            <li><a class="item" href="{% url 'professor-update' %}">Editar Perfil</a></li>
+            <li><a class="item" href="{% url 'ocorrencia-create' %}">Nova Ocorrência</a></li>
             <div class="right menu">
                 <li><a class="item" href="{% url 'logout' %}">Sair</a></li>
             </div>
         {% else %}
             <li><a class="item" href="{% url 'index' %}"><h3>OWL</h3></a></li>
             <div class="right menu">
-                <li><a class="item" href="{% url 'cadastrar-professor' %}"> Registre-se </a></li>
+                <li><a class="item" href="{% url 'professor-create' %}"> Registre-se </a></li>
             </div>
         {% endif %}
     </ul>
@@ -55,7 +56,7 @@
         <div class="three wide column">
             <ul class="ui divided celled relaxed inverted list">
                 <li class="item"><a href="https://github.com/lopeslarissa/" target="_blank"><i
-                        class="ui github large icon"></i>Github @lopeslarissa</a></li>
+                        class="ui bitbucket large icon"></i>lopeslarissa</a></li>
             </ul>
         </div>
     </div>

@@ -3,7 +3,7 @@
     {% if user.is_authenticated %}
         <h3>Dados da Ocorrência</h3>
         <div class="thirteen wide column">
-            <a class="ui right floated button" href="{% url 'editar-ocorrencia' ocorrencia.id %}">Editar</a></br>
+            <a class="ui right floated button" href="{% url 'ocorrencia-update' ocorrencia.id %}">Editar</a></br>
             <ul class="ui divided relaxed list">
                 <li class="item"><p><span class="ui small header"> Professor:</span>{{ ocorrencia.professor.first_name }}</p></li>
                 <li class="item"><p><span class="ui small header"> Aluno:</span>{{ ocorrencia.aluno.nome }}</p></li>
@@ -14,7 +14,7 @@
                 <li class="item"><p><span class="ui small header"> Hora:</span>{{ ocorrencia.hora }}</p></li>
                 <li class="item"><p><span class="ui small header"> Data:</span>{{ ocorrencia.data }}</p></li>
             </ul>
-            <form method="POST" action="{% url 'excluir-ocorrencia' ocorrencia.id %}" class='ui form'>
+            <form method="POST" action="{% url 'ocorrencia-delete' ocorrencia.id %}" class='ui form'>
                 <button type="submit" class="ui right floated button">Excluir</button>
                 {% csrf_token %}
             </form>

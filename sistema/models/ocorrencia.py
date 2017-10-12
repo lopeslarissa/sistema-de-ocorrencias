@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.urls import reverse
+from django.urls import reverse_lazy
+
 from sistema.models.aluno import Aluno
 from sistema.models.professor import Professor
 
@@ -15,6 +18,9 @@ class Ocorrencia(models.Model):
 
     def __unicode__(self):
         return '%s' % self.descricao
+
+    def get_absolute_url(self):
+        return reverse('ocorrencia-detail', kwargs={'pk': self.pk})
 
     class Meta:
         app_label = 'sistema'

@@ -2,12 +2,11 @@
 {% block content %}
     {% if user.is_authenticated %}
         {% if not id %}
-            <form method="POST" action="{% url 'cadastrar-ocorrencia' %}" class='ui form'>
             <h3>Cadastro de Ocorrência</h3>
         {% else %}
-            <form method="POST" action="{% url 'editar-ocorrencia' id %}" class='ui form'>
             <h3>Edição de Ocorrência</h3>
         {% endif %}
+        <form method="POST" action="" class='ui form'>
             {% csrf_token %}
             {% for hidden in form.hidden_fields %}
                 {{ hidden }}

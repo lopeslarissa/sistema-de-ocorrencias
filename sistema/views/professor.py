@@ -1,63 +1,61 @@
 # coding=utf-8
-from django.urls import reverse
-from django.views.generic import View
+from django.contrib.auth.models import User
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from django.views.generic import DeleteView
+from django.views.generic import UpdateView
 from django.contrib.auth import login, logout, authenticate
-from django.shortcuts import render
 from sistema.forms.professor import *
-from django.http import HttpResponseRedirect
 
 
-template = 'cadastrar_professor.html'
-template2 = 'index.html'
+class ProfessorCreateView(CreateView):
+    model = Professor
+    form_class = ProfessorForm
+    template_name = 'professor_form.html'
 
 
-class CadastraProfessor(View):
-    def get(self, request):
-        id = request.user.id
-        if id:
-            professor = Professor.objects.get(pk=id)
-            form = ProfessorEditForm(instance=professor)
-        else:
-            form = ProfessorForm
-        return render(request, template, {'form': form})
-
-    def post(self, request):
-        id = request.user.id
-        if id:
-            professor = Professor.objects.get(pk=id)
-            form = ProfessorEditForm(instance=professor, data=request.POST)
-            if form.is_valid():
-                form = form.save(commit=False)
-                form.set_password(request.POST['password'])
-                form.is_active = True
-                form.save()
-                user = authenticate(username=professor.username, password=request.POST['password'])
-                login(request, user)
-                return HttpResponseRedirect(reverse('index'))
-            else:
-                print(form.errors)
-            return render(request, template, {'form': ProfessorEditForm})
-        else:
-            form = ProfessorForm(data=request.POST)
-            if form.is_valid():
-                professor = form.save(commit=False)
-                professor.set_password(request.POST['password'])
-                professor.is_active = True
-                professor.save()
-                return HttpResponseRedirect(reverse('index'))
-            else:
-                print(form.errors)
-            return render(request, template, {'form': ProfessorForm})
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.set_password(self.request.POST['password'])
+        self.object.is_active = True
+        self.object.save()
+        return super(ProfessorCreateView, self).form_valid(form)
 
 
-class DesativarProfessor(View):
-    def post(self, request):
-        if request.user.is_authenticated:
-            id = request.user.id
-            ativo = Professor.objects.get(pk=id)
-            ativo.is_active = False
-            ativo.save()
-            logout(request)
-            return HttpResponseRedirect(reverse('index'))
-        else:
-            return HttpResponseRedirect(reverse('index'))
+class ProfessorUpdateView(UpdateView):
+    model = Professor
+    form_class = ProfessorEditForm
+    template_name = 'professor_form.html'
+
+    def get_object(self, queryset=None):
+        obj = User.objects.get(pk=self.request.user.id)
+        return obj
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.set_password(self.request.POST['password'])
+        self.object.is_active = True
+        self.object.save()
+        professor = Professor.objects.get(pk=self.object.id)
+        user = authenticate(username=professor.username, password=self.request.POST['password'])
+        login(self.request, user)
+        return super(ProfessorUpdateView, self).form_valid(form)
+
+
+class ProfessorDeleteView(DeleteView):
+    queryset = Professor.objects.filter()
+    success_url = reverse_lazy('login')
+
+    def get_object(self, queryset=None):
+        obj = Professor.objects.get(pk=self.request.user.id)
+        return obj
+
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.is_active = False
+        self.object.save()
+        logout(self.request)
+        return super(ProfessorDeleteView, self).form_valid(form)
+
+
+
