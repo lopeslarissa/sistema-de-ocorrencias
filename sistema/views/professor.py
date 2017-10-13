@@ -1,6 +1,8 @@
 # coding=utf-8
 from django.contrib.auth.models import User
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
+from django.utils.translation import ugettext
 from django.views.generic import CreateView
 from django.views.generic import DeleteView
 from django.views.generic import UpdateView
@@ -8,7 +10,7 @@ from django.contrib.auth import login, logout, authenticate
 from sistema.forms.professor import *
 
 
-class ProfessorCreateView(CreateView):
+class ProfessorCreateView(SuccessMessageMixin, CreateView):
     """
     Cadastra um Professor.
 
@@ -17,6 +19,7 @@ class ProfessorCreateView(CreateView):
     model = Professor
     form_class = ProfessorForm
     template_name = 'professor_form.html'
+    success_message = ugettext('Você foi cadastrado com sucesso')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -28,13 +31,8 @@ class ProfessorCreateView(CreateView):
         login(self.request, user)
         return super(ProfessorCreateView, self).form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super(ProfessorCreateView, self).get_context_data(**kwargs)
-        context['msg'] = 'Você foi cadastrado com sucesso!'
-        return context
 
-
-class ProfessorUpdateView(UpdateView):
+class ProfessorUpdateView(SuccessMessageMixin, UpdateView):
     """
     Atualiza os dados do Professor logado.
 
@@ -43,6 +41,7 @@ class ProfessorUpdateView(UpdateView):
     model = Professor
     form_class = ProfessorEditForm
     template_name = 'professor_form.html'
+    success_message = ugettext('Seu perfil foi atualizado com sucesso')
 
     def get_object(self, queryset=None):
         obj = User.objects.get(pk=self.request.user.id)
@@ -58,13 +57,8 @@ class ProfessorUpdateView(UpdateView):
         login(self.request, user)
         return super(ProfessorUpdateView, self).form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super(ProfessorUpdateView, self).get_context_data(**kwargs)
-        context['msg'] = 'Seu perfil foi atualizado com sucesso!'
-        return context
 
-
-class ProfessorDeleteView(DeleteView):
+class ProfessorDeleteView(SuccessMessageMixin, DeleteView):
     """
     Desativa o Professor logado.
 

@@ -1,24 +1,32 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block content %}
     {% if user.is_authenticated and user.is_staff%}
-        <h3>Perfil do Aluno</h3>
+        <h3>{% trans 'Perfil do Aluno' %}</h3>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         <div class="thirteen wide column">
-            <a class="ui right floated button" href="{% url 'aluno-update' aluno.id %}">Editar</a></br>
+            <a class="ui right floated button" href="{% url 'aluno-update' aluno.id %}">{% trans 'Editar' %}</a></br>
             <ul class="ui divided relaxed list">
-                <li class="item"><p><span class="ui small header"> Nome:</span>{{ aluno.nome }}</p></li>
-                <li class="item"><p><span class="ui small header"> E-mail:</span>{{ aluno.email }}</p></li>
-                <li class="item"><p><span class="ui small header"> Telefone:</span>{{ aluno.telefone }}</p></li>
-                <li class="item"><p><span class="ui small header"> Turma:</span>{{ aluno.turma }}</p></li>
-                <li class="item"><p><span class="ui small header"> Curso:</span>{{ aluno.curso }}</p></li>
-                <li class="item"><p><span class="ui small header"> Matrícula:</span>{{ aluno.matricula }}</p></li>
+                <li class="item"><p><span class="ui small header"> {% trans 'Nome' %}:</span>{{ aluno.nome }}</p></li>
+                <li class="item"><p><span class="ui small header"> {% trans 'E-mail' %}:</span>{{ aluno.email }}</p></li>
+                <li class="item"><p><span class="ui small header"> {% trans 'Telefone' %}:</span>{{ aluno.telefone }}</p></li>
+                <li class="item"><p><span class="ui small header"> {% trans 'Turma' %}:</span>{{ aluno.turma }}</p></li>
+                <li class="item"><p><span class="ui small header"> {% trans 'Curso' %}:</span>{{ aluno.curso }}</p></li>
+                <li class="item"><p><span class="ui small header"> {% trans 'Matrícula' %}:</span>{{ aluno.matricula }}</p></li>
             </ul>
             <form method="POST" action="{% url 'aluno-delete' aluno.id %}" class='ui form'>
-                <button type="submit" class="ui right floated button">Excluir</button>
+                <button type="submit" class="ui right floated button">{% trans 'Excluir' %}</button>
                 {% csrf_token %}
             </form>
         </div>
     {% else %}
-        <h4>Você não tem permissão para acessar esta página!</h4>
-        <a href="{% url 'index' %}">Voltar</a><br/>
+        <h4>{% trans 'Você não tem permissão para acessar esta página!' %}</h4>
+        <a href="{% url 'login' %}">{% trans 'Login' %}</a><br/>
     {% endif %}
 {% endblock content %}

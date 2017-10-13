@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block content %}
-    <h3>Entrar</h3>
+    <h3>{% trans 'Entrar' %}</h3>
     <form method="POST" action="{% url 'login' %}" class='ui form'>
         {% csrf_token %}
-        {% if msg %}
-            <div>{{ msg }}</div>
-        {% endif %}
         {% for hidden in form.hidden_fields %}
             {{ hidden }}
         {% endfor %}
@@ -14,7 +12,7 @@
                 <label>{{ field.label }}:</label>
                 {{ field }}
                 {% if field.help_text %}
-                    <span class="ui pointing label">Ajuda: {{ field.help_text }}</span>
+                    <span class="ui pointing label">{% trans 'Ajuda' %}: {{ field.help_text }}</span>
                 {% endif %}
                 </br>
                 {% if field.errors %}
@@ -24,6 +22,6 @@
                 {% endif %}
             </div>
         {% endfor %}
-        <button type="submit" class="ui green button">Entrar</button></br>
+        <button type="submit" class="ui green button">{% trans 'Entrar' %}</button></br>
     </form>
 {% endblock content %}

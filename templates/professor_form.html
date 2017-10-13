@@ -1,19 +1,24 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block content %}
     {% if user.is_authenticated %}
-        <h3>Edição de Professor</h3>
+        <h3>{% trans 'Edição de Professor' %}</h3>
         <form method="POST" action="{% url 'professor-delete' %}" class='ui form'>
-            <button type="submit" class=" right floated ui button">Desativar Conta</button></br>
+            <button type="submit" class=" right floated ui button">{% trans 'Desativar Conta' %}</button></br>
             {% csrf_token %}
         </form>
     {% else %}
-        <h3>Cadastro de Professor</h3>
+        <h3>{% trans 'Cadastro de Professor' %}</h3>
+    {% endif %}
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
     {% endif %}
     <form method="POST" action="" class='ui form'>
         {% csrf_token %}
-        {% if msg %}
-            <div>{{ msg }}</div>
-        {% endif %}
         {% for hidden in form.hidden_fields %}
             {{ hidden }}
         {% endfor %}
@@ -32,6 +37,6 @@
                 {% endif %}
             </div>
         {% endfor %}
-        <button type="submit" class=" right floated ui button">Salvar</button>
+        <button type="submit" class=" right floated ui button">{% trans 'Salvar' %}</button>
     </form>
 {% endblock content %}

@@ -1,0 +1,169 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-12 22:28-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: 404.html:4
+msgid "Página não encontrada erro 404"
+msgstr ""
+
+#: 404.html:5 aluno_detail.html:30 aluno_form.html:41 aluno_list.html:28
+#: ocorrencia_detail.html:35 ocorrencia_form.html:41 ocorrencia_list.html:29
+msgid "Login"
+msgstr ""
+
+#: aluno_detail.html:5
+msgid "Perfil do Aluno"
+msgstr ""
+
+#: aluno_detail.html:14 ocorrencia_detail.html:14
+msgid "Editar"
+msgstr ""
+
+#: aluno_detail.html:16
+msgid "Nome"
+msgstr ""
+
+#: aluno_detail.html:17
+msgid "E-mail"
+msgstr ""
+
+#: aluno_detail.html:18
+msgid "Telefone"
+msgstr ""
+
+#: aluno_detail.html:19 ocorrencia_detail.html:19
+msgid "Turma"
+msgstr ""
+
+#: aluno_detail.html:20
+msgid "Curso"
+msgstr ""
+
+#: aluno_detail.html:21 ocorrencia_detail.html:20
+msgid "Matrícula"
+msgstr ""
+
+#: aluno_detail.html:24 ocorrencia_detail.html:29
+msgid "Excluir"
+msgstr ""
+
+#: aluno_detail.html:29 aluno_form.html:40 aluno_list.html:27
+#: ocorrencia_detail.html:34 ocorrencia_form.html:40 ocorrencia_list.html:28
+msgid "Você não tem permissão para acessar esta página!"
+msgstr ""
+
+#: aluno_form.html:6
+msgid "Cadastro de Aluno"
+msgstr ""
+
+#: aluno_form.html:8
+msgid "Edição de Aluno"
+msgstr ""
+
+#: aluno_form.html:27 login.html:15 ocorrencia_form.html:27
+msgid "Ajuda"
+msgstr ""
+
+#: aluno_form.html:37 ocorrencia_form.html:37 professor_form.html:40
+msgid "Salvar"
+msgstr ""
+
+#: aluno_list.html:6 base.html:23
+msgid "Alunos Cadastrados"
+msgstr ""
+
+#: base.html:22
+msgid "Novo Aluno"
+msgstr ""
+
+#: base.html:25 base.html:32
+msgid "Sair"
+msgstr ""
+
+#: base.html:29
+msgid "Editar Perfil"
+msgstr ""
+
+#: base.html:30
+msgid "Nova Ocorrência"
+msgstr ""
+
+#: base.html:37
+msgid "Registre-se "
+msgstr ""
+
+#: login.html:4 login.html:25
+msgid "Entrar"
+msgstr ""
+
+#: ocorrencia_detail.html:5
+msgid "Dados da Ocorrência"
+msgstr ""
+
+#: ocorrencia_detail.html:17
+msgid "Professor"
+msgstr ""
+
+#: ocorrencia_detail.html:18
+msgid "Aluno"
+msgstr ""
+
+#: ocorrencia_detail.html:22
+msgid "Disciplina"
+msgstr ""
+
+#: ocorrencia_detail.html:24
+msgid "Descrição"
+msgstr ""
+
+#: ocorrencia_detail.html:25
+msgid "Hora:"
+msgstr ""
+
+#: ocorrencia_detail.html:26
+msgid "Data"
+msgstr ""
+
+#: ocorrencia_form.html:6
+msgid "Cadastro de Ocorrência"
+msgstr ""
+
+#: ocorrencia_form.html:8
+msgid "Edição de Ocorrência"
+msgstr ""
+
+#: ocorrencia_list.html:6
+msgid "Sistema de Ocorrência"
+msgstr ""
+
+#: ocorrencia_list.html:7
+msgid "Ocorrências Registradas"
+msgstr ""
+
+#: professor_form.html:5
+msgid "Edição de Professor"
+msgstr ""
+
+#: professor_form.html:7
+msgid "Desativar Conta"
+msgstr ""
+
+#: professor_form.html:11
+msgid "Cadastro de Professor"
+msgstr ""

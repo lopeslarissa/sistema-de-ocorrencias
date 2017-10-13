@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block content %}
     {% if user.is_authenticated %}
-        {% if not id %}
-            <h3>Cadastro de Ocorrência</h3>
+        {% if ocorrencia == None %}
+            <h3>{% trans 'Cadastro de Ocorrência' %}</h3>
         {% else %}
-            <h3>Edição de Ocorrência</h3>
+            <h3>{% trans 'Edição de Ocorrência' %}</h3>
+        {% endif %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
         {% endif %}
         <form method="POST" action="" class='ui form'>
             {% csrf_token %}
@@ -16,7 +24,7 @@
                     <label>{{ field.label }}:</label>
                     {{ field }}
                     {% if field.help_text %}
-                        <span class="ui pointing label">Ajuda: {{ field.help_text }}</span>
+                        <span class="ui pointing label">{% trans 'Ajuda' %}: {{ field.help_text }}</span>
                     {% endif %}
                     </br>
                     {% if field.errors %}
@@ -26,10 +34,10 @@
                     {% endif %}
                 </div>
             {% endfor %}
-            <button type="submit" class="right floated ui button">Salvar</button>
+            <button type="submit" class="right floated ui button">{% trans 'Salvar' %}</button>
         </form>
     {% else %}
-        <h4>Você não tem permissão para acessar esta página!</h4>
-        <a href="{% url 'index' %}">Voltar</a><br/>
+        <h4>{% trans 'Você não tem permissão para acessar esta página!' %}</h4>
+        <a href="{% url 'login' %}">{% trans 'Login' %}</a><br/>
     {% endif %}
 {% endblock content %}

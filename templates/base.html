@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-
+{% load i18n %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,22 +19,22 @@
     <ul class= "ui massive stackable borderless menu">
 		{% if user.is_superuser %}
 			<li><a class="item" href="{% url 'index' %}"><h3>OWL</h3></a></li>
-			<li><a class="item" href="{% url 'aluno-create' %}">Novo Aluno</a></li>
-            <li><a class="item" href="{% url 'aluno-list' %}">Alunos Cadastrados</a></li>
+			<li><a class="item" href="{% url 'aluno-create' %}">{% trans 'Novo Aluno' %}</a></li>
+            <li><a class="item" href="{% url 'aluno-list' %}">{% trans 'Alunos Cadastrados' %}</a></li>
             <div class="right menu">
-			    <li><a class="item" href="{% url 'logout' %}">Sair</a></li>
+			    <li><a class="item" href="{% url 'logout' %}">{% trans 'Sair' %}</a></li>
             </div>
         {% elif user.is_authenticated %}
 			<li><a class="item" href="{% url 'index' %}"><h3>OWL</h3></a></li>
-            <li><a class="item" href="{% url 'professor-update' %}">Editar Perfil</a></li>
-            <li><a class="item" href="{% url 'ocorrencia-create' %}">Nova Ocorrência</a></li>
+            <li><a class="item" href="{% url 'professor-update' %}">{% trans 'Editar Perfil' %}</a></li>
+            <li><a class="item" href="{% url 'ocorrencia-create' %}">{% trans 'Nova Ocorrência' %}</a></li>
             <div class="right menu">
-                <li><a class="item" href="{% url 'logout' %}">Sair</a></li>
+                <li><a class="item" href="{% url 'logout' %}">{% trans 'Sair' %}</a></li>
             </div>
         {% else %}
             <li><a class="item" href="{% url 'index' %}"><h3>OWL</h3></a></li>
             <div class="right menu">
-                <li><a class="item" href="{% url 'professor-create' %}"> Registre-se </a></li>
+                <li><a class="item" href="{% url 'professor-create' %}"> {% trans 'Registre-se ' %}</a></li>
             </div>
         {% endif %}
     </ul>

@@ -1,11 +1,13 @@
 # coding=utf-8
 from django.urls import reverse_lazy
+from django.utils.translation import ugettext
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from sistema.forms.aluno import AlunoForm
 from sistema.models.aluno import Aluno
+from django.contrib.messages.views import SuccessMessageMixin
 
 
-class AlunoCreateView(CreateView):
+class AlunoCreateView(SuccessMessageMixin, CreateView):
     """
     Cadastra um Aluno.
 
@@ -14,6 +16,7 @@ class AlunoCreateView(CreateView):
     model = Aluno
     form_class = AlunoForm
     template_name = 'aluno_form.html'
+    success_message = ugettext('Aluno cadastrado com sucesso')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -21,13 +24,8 @@ class AlunoCreateView(CreateView):
         self.object.save()
         return super(AlunoCreateView, self).form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super(AlunoCreateView, self).get_context_data(**kwargs)
-        context['msg'] = 'Aluno cadastrado com sucesso!'
-        return context
 
-
-class AlunoUpdateView(UpdateView):
+class AlunoUpdateView(SuccessMessageMixin, UpdateView):
     """
     Atualiza os dados do Aluno selecionado.
 
@@ -36,6 +34,7 @@ class AlunoUpdateView(UpdateView):
     model = Aluno
     form_class = AlunoForm
     template_name = 'aluno_form.html'
+    success_message = ugettext('Aluno atualizado com sucesso')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -43,13 +42,8 @@ class AlunoUpdateView(UpdateView):
         self.object.save()
         return super(AlunoUpdateView, self).form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super(AlunoUpdateView, self).get_context_data(**kwargs)
-        context['msg'] = 'Aluno atualizado com sucesso!'
-        return context
 
-
-class AlunoDeleteView(DeleteView):
+class AlunoDeleteView(SuccessMessageMixin, DeleteView):
     """
     Desativa o Aluno selecionado.
 
@@ -57,17 +51,14 @@ class AlunoDeleteView(DeleteView):
     """
     queryset = Aluno.objects.filter(excluido=False)
     success_url = reverse_lazy('aluno-list')
+    success_message = ugettext('Aluno excluído com sucesso')
+
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.excluido = True
         self.object.save()
         return super(AlunoDeleteView, self).form_valid(form)
-
-    def get_context_data(self, **kwargs):
-        context = super(AlunoDeleteView, self).get_context_data(**kwargs)
-        context['msg'] = 'Aluno deletado com sucesso!'
-        return context
 
 
 class AlunoListView(ListView):

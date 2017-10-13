@@ -1,11 +1,13 @@
 # coding=utf-8
+from django.contrib.messages.views import SuccessMessageMixin
+from django.utils.translation import ugettext
 from sistema.models.professor import Professor
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from sistema.forms.ocorrencia import *
 
 
-class OcorrenciaCreateView(CreateView):
+class OcorrenciaCreateView(SuccessMessageMixin, CreateView):
     """
     Cadastra uma Ocorrência.
 
@@ -14,6 +16,7 @@ class OcorrenciaCreateView(CreateView):
     model = Ocorrencia
     form_class = OcorrenciaForm
     template_name = 'ocorrencia_form.html'
+    success_message = ugettext('Ocorrência cadastrada com sucesso')
 
     def form_valid(self, form):
         professor = Professor.objects.get(pk=self.request.user.id)
@@ -22,13 +25,8 @@ class OcorrenciaCreateView(CreateView):
         self.object.save()
         return super(OcorrenciaCreateView, self).form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super(OcorrenciaCreateView, self).get_context_data(**kwargs)
-        context['msg'] = 'Ocorrencia cadastrada com sucesso!'
-        return context
 
-
-class OcorrenciaUpdateView(UpdateView):
+class OcorrenciaUpdateView(SuccessMessageMixin, UpdateView):
     """
     Atualiza os dados da Ocorrência selecionada.
 
@@ -37,6 +35,7 @@ class OcorrenciaUpdateView(UpdateView):
     model = Ocorrencia
     form_class = OcorrenciaForm
     template_name = 'ocorrencia_form.html'
+    success_message = ugettext('Ocorrência atualizada com sucesso')
 
     def form_valid(self, form):
         professor = Professor.objects.get(pk=self.request.user.id)
@@ -45,13 +44,8 @@ class OcorrenciaUpdateView(UpdateView):
         self.object.save()
         return super(OcorrenciaUpdateView, self).form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super(OcorrenciaUpdateView, self).get_context_data(**kwargs)
-        context['msg'] = 'Ocorrencia atualizada com sucesso!'
-        return context
 
-
-class OcorrenciaDeleteView(DeleteView):
+class OcorrenciaDeleteView(SuccessMessageMixin, DeleteView):
     """
     Desativa a Ocorrência selecionada.
 
@@ -59,17 +53,14 @@ class OcorrenciaDeleteView(DeleteView):
     """
     queryset = Ocorrencia.objects.filter(excluido=False)
     success_url = reverse_lazy('ocorrencia-list')
+    success_message = ugettext('Ocorrência deletada com sucesso')
+
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.excluido = True
         self.object.save()
         return super(OcorrenciaDeleteView, self).form_valid(form)
-
-    def get_context_data(self, **kwargs):
-        context = super(OcorrenciaDeleteView, self).get_context_data(**kwargs)
-        context['msg'] = 'Ocorrencia deletada com sucesso!'
-        return context
 
 
 class OcorrenciaListView(ListView):
