@@ -2,7 +2,7 @@
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from django.utils.translation import ugettext
+from django.utils.translation import ugettext, gettext
 from django.views.generic import CreateView
 from django.views.generic import DeleteView
 from django.views.generic import UpdateView
@@ -19,7 +19,7 @@ class ProfessorCreateView(SuccessMessageMixin, CreateView):
     model = Professor
     form_class = ProfessorForm
     template_name = 'professor_form.html'
-    success_message = ugettext('Você foi cadastrado com sucesso')
+    success_message = gettext('Você foi cadastrado com sucesso')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -41,7 +41,7 @@ class ProfessorUpdateView(SuccessMessageMixin, UpdateView):
     model = Professor
     form_class = ProfessorEditForm
     template_name = 'professor_form.html'
-    success_message = ugettext('Seu perfil foi atualizado com sucesso')
+    success_message = gettext('Seu perfil foi atualizado com sucesso')
 
     def get_object(self, queryset=None):
         obj = User.objects.get(pk=self.request.user.id)

@@ -1,6 +1,6 @@
 # coding=utf-8
 from django.urls import reverse_lazy
-from django.utils.translation import ugettext
+from django.utils.translation import ugettext, gettext
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from sistema.forms.aluno import AlunoForm
 from sistema.models.aluno import Aluno
@@ -16,7 +16,7 @@ class AlunoCreateView(SuccessMessageMixin, CreateView):
     model = Aluno
     form_class = AlunoForm
     template_name = 'aluno_form.html'
-    success_message = ugettext('Aluno cadastrado com sucesso')
+    success_message = gettext('Aluno cadastrado com sucesso')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -34,7 +34,7 @@ class AlunoUpdateView(SuccessMessageMixin, UpdateView):
     model = Aluno
     form_class = AlunoForm
     template_name = 'aluno_form.html'
-    success_message = ugettext('Aluno atualizado com sucesso')
+    success_message = gettext('Aluno atualizado com sucesso')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -51,7 +51,7 @@ class AlunoDeleteView(SuccessMessageMixin, DeleteView):
     """
     queryset = Aluno.objects.filter(excluido=False)
     success_url = reverse_lazy('aluno-list')
-    success_message = ugettext('Aluno excluído com sucesso')
+    success_message = gettext('Aluno excluído com sucesso')
 
 
     def form_valid(self, form):
