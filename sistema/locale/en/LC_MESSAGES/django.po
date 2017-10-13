@@ -19,32 +19,143 @@ msgstr ""
 
 #: views/aluno.py:19
 msgid "Aluno cadastrado com sucesso"
-msgstr ""
+msgstr "Student successfully registered"
 
 #: views/aluno.py:37
 msgid "Aluno atualizado com sucesso"
-msgstr ""
+msgstr "Student successfully updated"
 
 #: views/aluno.py:54
 msgid "Aluno excluído com sucesso"
-msgstr ""
+msgstr "Student successfully disabled"
 
 #: views/ocorrencia.py:19
 msgid "Ocorrência cadastrada com sucesso"
-msgstr ""
+msgstr "Occurrence successfully registered"
 
 #: views/ocorrencia.py:38
 msgid "Ocorrência atualizada com sucesso"
-msgstr ""
+msgstr "Occurrence successfully updated"
 
 #: views/ocorrencia.py:56
 msgid "Ocorrência deletada com sucesso"
-msgstr ""
+msgstr "Occurrence successfully disabled"
 
 #: views/professor.py:22
 msgid "Você foi cadastrado com sucesso"
-msgstr ""
+msgstr "You were successfully registered"
 
 #: views/professor.py:44
 msgid "Seu perfil foi atualizado com sucesso"
+msgstr "Your profile was successfully updated"
+
+#: 404.html:4
+msgid "Página não encontrada erro 404"
+msgstr "error 404 - Page not found"
+
+#: 404.html:5 aluno_detail.html:30 aluno_form.html:41 aluno_list.html:28
+#: ocorrencia_detail.html:35 ocorrencia_form.html:41 ocorrencia_list.html:29
+msgid "Login"
+msgstr "Login"
+
+#: aluno_detail.html:5
+msgid "Perfil do Aluno"
+msgstr "Student's Profile"
+
+#: aluno_detail.html:14 ocorrencia_detail.html:14
+msgid "Editar"
+msgstr "Edit"
+
+#: aluno_detail.html:16
+msgid "Nome"
+msgstr "Name"
+
+#: aluno_detail.html:17
+msgid "E-mail"
+msgstr "Email"
+
+#: aluno_detail.html:18
+msgid "Telefone"
+msgstr "Phone"
+
+#: aluno_detail.html:19 ocorrencia_detail.html:19
+msgid "Turma"
+msgstr "Class"
+
+#: aluno_detail.html:20
+msgid "Curso"
+msgstr "Course"
+
+#: aluno_detail.html:21 ocorrencia_detail.html:20
+msgid "Registration"
 msgstr ""
+
+#: aluno_detail.html:24 ocorrencia_detail.html:29
+msgid "Excluir"
+msgstr "Exclude"
+
+#: aluno_detail.html:29 aluno_form.html:40 aluno_list.html:27
+#: ocorrencia_detail.html:34 ocorrencia_form.html:40 ocorrencia_list.html:28
+msgid "Você não tem permissão para acessar esta página!"
+msgstr "You don't have permission to access this page"
+
+#: aluno_form.html:6
+msgid "Cadastro de Aluno"
+msgstr "Student Registration"
+
+#: aluno_form.html:8
+msgid "Edição de Aluno"
+msgstr "Student Edition"
+
+#: aluno_form.html:27 login.html:15 ocorrencia_form.html:27
+msgid "Ajuda"
+msgstr "Help"
+
+#: aluno_form.html:37 ocorrencia_form.html:37 professor_form.html:40
+msgid "Salvar"
+msgstr "Save"
+
+#: aluno_list.html:6 base.html:23
+msgid "Alunos Cadastrados"
+msgstr "Registered Students"
+
+#: base.html:22
+msgid "Novo Aluno"
+msgstr "New Student"
+
+#: base.html:25 base.html:32
+msgid "Sair"
+msgstr "Log Out"
+
+#: base.html:29
+msgid "Editar Perfil"
+msgstr "Edit Profile"
+
+#: base.html:30
+msgid "Nova Ocorrência"
+msgstr "New Occurrence"
+
+#: base.html:37
+msgid "Registre-se "
+msgstr "Create an account"
+
+#: login.html:4 login.html:25
+msgid "Entrar"
+msgstr "Login"
+
+#: ocorrencia_detail.html:5
+msgid "Dados da Ocorrência"
+msgstr "Occurrence Data"
+
+#: ocorrencia_detail.html:17
+msgid "Professor"
+msgstr "Teacher"
+
+#: ocorrencia_detail.html:18
+msgid "Aluno"
+msgstr "Student"
+
+#: ocorrencia_detail.html:22
+msgid "Disciplina"
+msgstr "Discipline"
+

@@ -20,32 +20,143 @@ msgstr ""
 
 #: views/aluno.py:19
 msgid "Aluno cadastrado com sucesso"
-msgstr ""
+msgstr "Aluno cadastrado com sucesso"
 
 #: views/aluno.py:37
 msgid "Aluno atualizado com sucesso"
-msgstr ""
+msgstr "Aluno atualizado com sucesso"
 
 #: views/aluno.py:54
 msgid "Aluno excluído com sucesso"
-msgstr ""
+msgstr "Aluno excluído com sucesso"
 
 #: views/ocorrencia.py:19
 msgid "Ocorrência cadastrada com sucesso"
-msgstr ""
+msgstr "Ocorrência cadastrada com sucesso"
 
 #: views/ocorrencia.py:38
 msgid "Ocorrência atualizada com sucesso"
-msgstr ""
+msgstr "Ocorrência atualizada com sucesso"
 
 #: views/ocorrencia.py:56
 msgid "Ocorrência deletada com sucesso"
-msgstr ""
+msgstr "Ocorrência deletada com sucesso"
 
 #: views/professor.py:22
 msgid "Você foi cadastrado com sucesso"
-msgstr ""
+msgstr "Você foi cadastrado com sucesso"
 
 #: views/professor.py:44
 msgid "Seu perfil foi atualizado com sucesso"
-msgstr ""
+msgstr "Seu perfil foi atualizado com sucesso"
+
+#: 404.html:4
+msgid "Página não encontrada erro 404"
+msgstr "Página não encontrada erro 404"
+
+#: 404.html:5 aluno_detail.html:30 aluno_form.html:41 aluno_list.html:28
+#: ocorrencia_detail.html:35 ocorrencia_form.html:41 ocorrencia_list.html:29
+msgid "Login"
+msgstr "Login"
+
+#: aluno_detail.html:5
+msgid "Perfil do Aluno"
+msgstr "Perfil do Aluno"
+
+#: aluno_detail.html:14 ocorrencia_detail.html:14
+msgid "Editar"
+msgstr "Editar"
+
+#: aluno_detail.html:16
+msgid "Nome"
+msgstr "Nome"
+
+#: aluno_detail.html:17
+msgid "E-mail"
+msgstr "E-mail"
+
+#: aluno_detail.html:18
+msgid "Telefone"
+msgstr "Telefone"
+
+#: aluno_detail.html:19 ocorrencia_detail.html:19
+msgid "Turma"
+msgstr "Turma"
+
+#: aluno_detail.html:20
+msgid "Curso"
+msgstr "Curso"
+
+#: aluno_detail.html:21 ocorrencia_detail.html:20
+msgid "Matrícula"
+msgstr "Matrícula"
+
+#: aluno_detail.html:24 ocorrencia_detail.html:29
+msgid "Excluir"
+msgstr "Excluir"
+
+#: aluno_detail.html:29 aluno_form.html:40 aluno_list.html:27
+#: ocorrencia_detail.html:34 ocorrencia_form.html:40 ocorrencia_list.html:28
+msgid "Você não tem permissão para acessar esta página!"
+msgstr "Você não tem permissão para acessar esta página!"
+
+#: aluno_form.html:6
+msgid "Cadastro de Aluno"
+msgstr "Cadastro de Aluno"
+
+#: aluno_form.html:8
+msgid "Edição de Aluno"
+msgstr "Edição de Aluno"
+
+#: aluno_form.html:27 login.html:15 ocorrencia_form.html:27
+msgid "Ajuda"
+msgstr "Ajuda"
+
+#: aluno_form.html:37 ocorrencia_form.html:37 professor_form.html:40
+msgid "Salvar"
+msgstr "Salvar"
+
+#: aluno_list.html:6 base.html:23
+msgid "Alunos Cadastrados"
+msgstr "Alunos Cadastrados"
+
+#: base.html:22
+msgid "Novo Aluno"
+msgstr "Novo Aluno"
+
+#: base.html:25 base.html:32
+msgid "Sair"
+msgstr "Sair"
+
+#: base.html:29
+msgid "Editar Perfil"
+msgstr "Editar Perfil"
+
+#: base.html:30
+msgid "Nova Ocorrência"
+msgstr "Nova Ocorrência"
+
+#: base.html:37
+msgid "Registre-se "
+msgstr "Registre-se "
+
+#: login.html:4 login.html:25
+msgid "Entrar"
+msgstr "Entrar"
+
+#: ocorrencia_detail.html:5
+msgid "Dados da Ocorrência"
+msgstr "Dados da Ocorrência"
+
+#: ocorrencia_detail.html:17
+msgid "Professor"
+msgstr "Professor"
+
+#: ocorrencia_detail.html:18
+msgid "Aluno"
+msgstr "Aluno"
+
+#: ocorrencia_detail.html:22
+msgid "Disciplina"
+msgstr "Disciplina"
+
