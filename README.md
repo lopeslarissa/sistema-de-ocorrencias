@@ -12,7 +12,7 @@ Servidor Web: [Ocorrência](http://lopes.pythonanywhere.com/)
 	$ python manage.py compilemessages 
 	
 # Documentação:
-	$ cd sistema/docs
+	$ cd doc
 	$ make html
 - Acesse o diretório sistena/docs/_build/html/
 - Abra o documento index.html com seu navegador
