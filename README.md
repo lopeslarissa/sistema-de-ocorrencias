@@ -1,5 +1,4 @@
 # Desenvolvimento Web II - Projeto de Sufiência 
-===============================================
 
 Servidor Web: [Ocorrência](http://lopes.pythonanywhere.com/)
 
@@ -18,23 +17,21 @@ Servidor Web: [Ocorrência](http://lopes.pythonanywhere.com/)
 - Acesse o diretório sistena/docs/_build/html/
 - Abra o documento index.html com seu navegador
 	
-# Requisitos do Projeto
-=====================
+## Requisitos do Projeto
 
 # Desenvolver um projeto da seguinte forma:
 - Desenvolver utilizando um dos frameworks web Python: Django ou Flask
-- Modelo ER
+- Modelo ER 
 - Modelo de Classes
-- Ser desenvolvido utilizando GIT durante todo o processo, com commits a cada etapa
+- Ser desenvolvido utilizando GIT durante todo o processo, com commits a cada etapa 
 - Ser feita a publicação em um servidor e passar a URL para acesso
 - De 2 a 4 entidades (tabelas)
 - Autenticação de usuários com pelo menos acessos diferenciados para usuários autenticados e visitantes
-- CSS (bootstrap ou semelhantes)
+- CSS (bootstrap ou semelhantes) 
 
 # Serão verificados:
 - Utilização de virtualenv, com arquivo requirements.txt
-- Estrutura e organização do projeto em pastas e arquivos
-- Models, Forms, Views e Admin em arquivos separados
+- Estrutura e organização do projeto em pastas e arquivos (Models, Forms, Views e Admin em arquivos separados)
 - Uso de herança de templates (base.html)
 - Pelo menos um uso de Class Based Views (CBV) e um de Generic Class Based View
 - Fazer a Localização (tradução para outros idiomas) da aplicação
