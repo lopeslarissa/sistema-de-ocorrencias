@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Aluno &mdash; documentação Ocorrência 2</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Índice"
+              href="../genindex.html"/>
+        <link rel="search" title="Buscar" href="../search.html"/>
+    <link rel="top" title="documentação Ocorrência 2" href="../index.html"/>
+        <link rel="next" title="Professor" href="professor.html"/>
+        <link rel="prev" title="Welcome to Ocorrência’s documentation!" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Ocorrência
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Aluno</a></li>
+<li class="toctree-l1"><a class="reference internal" href="professor.html">Professor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ocorrencia.html">Ocorrência</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Ocorrência</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Aluno</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/aluno.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-sistema.models.aluno">
+<span id="aluno"></span><h1>Aluno<a class="headerlink" href="#module-sistema.models.aluno" title="Link permanente para este título">¶</a></h1>
+<dl class="class">
+<dt id="sistema.models.aluno.Aluno">
+<em class="property">class </em><code class="descclassname">sistema.models.aluno.</code><code class="descname">Aluno</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#sistema.models.aluno.Aluno" title="Link permanente para esta definição">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parâmetros:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nome</strong> – models.CharField(max_length=250)</li>
+<li><strong>email</strong> – models.EmailField(verbose_name=”E-mail”)</li>
+<li><strong>telefone</strong> – models.CharField(max_length=11)</li>
+<li><strong>turma</strong> – models.CharField(max_length=250)</li>
+<li><strong>curso</strong> – models.CharField(max_length=250)</li>
+<li><strong>matricula</strong> – models.CharField(max_length=250)</li>
+<li><strong>excluido</strong> – models.BooleanField(verbose_name=’Excluído’, default=False)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-sistema.views.aluno"></span><dl class="class">
+<dt id="sistema.views.aluno.AlunoCreateView">
+<em class="property">class </em><code class="descclassname">sistema.views.aluno.</code><code class="descname">AlunoCreateView</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#sistema.views.aluno.AlunoCreateView" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Cadastra um Aluno.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="http:/">http:/</a>/&lt;ip_servidor&gt;/cadastrar-aluno/</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="sistema.views.aluno.AlunoCreateView.model">
+<code class="descname">model</code><a class="headerlink" href="#sistema.views.aluno.AlunoCreateView.model" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>apelido de <code class="xref py py-class docutils literal"><span class="pre">Aluno</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sistema.views.aluno.AlunoUpdateView">
+<em class="property">class </em><code class="descclassname">sistema.views.aluno.</code><code class="descname">AlunoUpdateView</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#sistema.views.aluno.AlunoUpdateView" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Atualiza os dados do Aluno selecionado.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="http:/">http:/</a>/&lt;ip_servidor&gt;/editar-aluno/&lt;id&gt;/</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="sistema.views.aluno.AlunoUpdateView.model">
+<code class="descname">model</code><a class="headerlink" href="#sistema.views.aluno.AlunoUpdateView.model" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>apelido de <code class="xref py py-class docutils literal"><span class="pre">Aluno</span></code></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sistema.views.aluno.AlunoDeleteView">
+<em class="property">class </em><code class="descclassname">sistema.views.aluno.</code><code class="descname">AlunoDeleteView</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#sistema.views.aluno.AlunoDeleteView" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Desativa o Aluno selecionado.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="http:/">http:/</a>/&lt;ip_servidor&gt;/excluir-aluno/&lt;id&gt;/</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="sistema.views.aluno.AlunoListView">
+<em class="property">class </em><code class="descclassname">sistema.views.aluno.</code><code class="descname">AlunoListView</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#sistema.views.aluno.AlunoListView" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Lista todos os Alunos, exceto os desativados.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="http:/">http:/</a>/&lt;ip_servidor&gt;/listar-aluno/</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="sistema.views.aluno.AlunoDetailView">
+<em class="property">class </em><code class="descclassname">sistema.views.aluno.</code><code class="descname">AlunoDetailView</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#sistema.views.aluno.AlunoDetailView" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Exibe os dados do Aluno selecionado.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">URL:</th><td class="field-body"><a class="reference external" href="http:/">http:/</a>/&lt;ip_servidor&gt;/vizualizar-aluno/&lt;id&gt;/</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="professor.html" class="btn btn-neutral float-right" title="Professor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Welcome to Ocorrência’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Larissa Lopes.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

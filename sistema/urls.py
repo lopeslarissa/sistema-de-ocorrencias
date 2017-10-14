@@ -1,6 +1,5 @@
 from django.conf.urls import url
 from django.views.generic import TemplateView
-from sistema import views
 from sistema.views.aluno import *
 from sistema.views.professor import *
 from sistema.views.ocorrencia import *

@@ -1,6 +1,6 @@
 # coding=utf-8
 from django.contrib.messages.views import SuccessMessageMixin
-from django.utils.translation import ugettext, gettext
+from django.utils.translation import ugettext, gettext_lazy
 from sistema.models.professor import Professor
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
@@ -16,7 +16,7 @@ class OcorrenciaCreateView(SuccessMessageMixin, CreateView):
     model = Ocorrencia
     form_class = OcorrenciaForm
     template_name = 'ocorrencia_form.html'
-    success_message = gettext('Ocorrência cadastrada com sucesso')
+    success_message = gettext_lazy('Ocorrência cadastrada com sucesso')
 
     def form_valid(self, form):
         professor = Professor.objects.get(pk=self.request.user.id)
@@ -35,7 +35,7 @@ class OcorrenciaUpdateView(SuccessMessageMixin, UpdateView):
     model = Ocorrencia
     form_class = OcorrenciaForm
     template_name = 'ocorrencia_form.html'
-    success_message = gettext('Ocorrência atualizada com sucesso')
+    success_message = gettext_lazy('Ocorrência atualizada com sucesso')
 
     def form_valid(self, form):
         professor = Professor.objects.get(pk=self.request.user.id)
@@ -53,7 +53,7 @@ class OcorrenciaDeleteView(SuccessMessageMixin, DeleteView):
     """
     queryset = Ocorrencia.objects.filter(excluido=False)
     success_url = reverse_lazy('ocorrencia-list')
-    success_message = gettext('Ocorrência deletada com sucesso')
+    success_message = gettext_lazy('Ocorrência deletada com sucesso')
 
 
     def form_valid(self, form):
