@@ -5,31 +5,31 @@ Servidor Web: [Ocorrência](http://lopes.pythonanywhere.com/)
 
 
 # Instalação:
-	- $ git clone https://lopeslarissa@bitbucket.org/lopeslarissa/ocorrencia.git
-	- $ pip install -r requirements.txt
-	- $ python manage.py make migrations
-	- $ python manage.py make migrate
-	- $ python manapy.py populate_db_ocorrencia (opcional)
-	- $ python manage.py compilemessages 
+	$ git clone https://lopeslarissa@bitbucket.org/lopeslarissa/ocorrencia.git
+	$ pip install -r requirements.txt
+	$ python manage.py make migrations
+	$ python manage.py make migrate
+	$ python manapy.py populate_db_ocorrencia (opcional)
+	$ python manage.py compilemessages 
 	
 # Documentação:
-	- $ cd sistema/docs
-	- $ make html
-	- Acesse o diretório sistena/docs/_build/html/
-	- Abra o documento index.html com seu navegador
+	$ cd sistema/docs
+	$ make html
+- Acesse o diretório sistena/docs/_build/html/
+- Abra o documento index.html com seu navegador
 	
 Requisitos do Projeto
 =====================
 
 # Desenvolver um projeto da seguinte forma:
-	Desenvolver utilizando um dos frameworks web Python: Django ou Flask
-	Modelo ER
-	Modelo de Classes
-	Ser desenvolvido utilizando GIT durante todo o processo, com commits a cada etapa
-	Ser feita a publicação em um servidor e passar a URL para acesso
-	De 2 a 4 entidades (tabelas)
-	Autenticação de usuários com pelo menos acessos diferenciados para usuários autenticados e visitantes
-	CSS (bootstrap ou semelhantes)
+- Desenvolver utilizando um dos frameworks web Python: Django ou Flask
+- Modelo ER
+- Modelo de Classes
+- Ser desenvolvido utilizando GIT durante todo o processo, com commits a cada etapa
+- Ser feita a publicação em um servidor e passar a URL para acesso
+- De 2 a 4 entidades (tabelas)
+- Autenticação de usuários com pelo menos acessos diferenciados para usuários autenticados e visitantes
+- CSS (bootstrap ou semelhantes)
 
 # Serão verificados:
 	Utilização de virtualenv, com arquivo requirements.txt
