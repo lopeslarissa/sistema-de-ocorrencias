@@ -1,3 +1,4 @@
+# coding=utf-8
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -8,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-12 22:02-0300\n"
+"POT-Creation-Date: 2017-10-14 12:15-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,147 +17,191 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+
+#: forms/ocorrencia.py:12
+msgid "Descrição da ocorrência"
+msgstr ""
+
 
 #: views/aluno.py:19
 msgid "Aluno cadastrado com sucesso"
-msgstr "Aluno cadastrado com sucesso"
+msgstr ""
 
 #: views/aluno.py:37
 msgid "Aluno atualizado com sucesso"
-msgstr "Aluno atualizado com sucesso"
+msgstr ""
 
 #: views/aluno.py:54
 msgid "Aluno excluído com sucesso"
-msgstr "Aluno excluído com sucesso"
+msgstr ""
 
 #: views/ocorrencia.py:19
 msgid "Ocorrência cadastrada com sucesso"
-msgstr "Ocorrência cadastrada com sucesso"
+msgstr ""
 
 #: views/ocorrencia.py:38
 msgid "Ocorrência atualizada com sucesso"
-msgstr "Ocorrência atualizada com sucesso"
+msgstr ""
 
 #: views/ocorrencia.py:56
 msgid "Ocorrência deletada com sucesso"
-msgstr "Ocorrência deletada com sucesso"
+msgstr ""
 
 #: views/professor.py:22
 msgid "Você foi cadastrado com sucesso"
-msgstr "Você foi cadastrado com sucesso"
+msgstr ""
 
 #: views/professor.py:44
 msgid "Seu perfil foi atualizado com sucesso"
-msgstr "Seu perfil foi atualizado com sucesso"
+msgstr ""
 
 #: 404.html:4
 msgid "Página não encontrada erro 404"
-msgstr "Página não encontrada erro 404"
+msgstr ""
 
 #: 404.html:5 aluno_detail.html:30 aluno_form.html:41 aluno_list.html:28
 #: ocorrencia_detail.html:35 ocorrencia_form.html:41 ocorrencia_list.html:29
 msgid "Login"
-msgstr "Login"
+msgstr ""
 
 #: aluno_detail.html:5
 msgid "Perfil do Aluno"
-msgstr "Perfil do Aluno"
+msgstr ""
 
 #: aluno_detail.html:14 ocorrencia_detail.html:14
 msgid "Editar"
-msgstr "Editar"
+msgstr ""
 
-#: aluno_detail.html:16
+#: aluno_detail.html:16 forms/aluno.py:8
 msgid "Nome"
-msgstr "Nome"
+msgstr ""
 
-#: aluno_detail.html:17
+#: aluno_detail.html:17 forms/aluno.py:9
 msgid "E-mail"
-msgstr "E-mail"
+msgstr ""
 
-#: aluno_detail.html:18
+#: aluno_detail.html:18 forms/aluno.py:10
 msgid "Telefone"
-msgstr "Telefone"
+msgstr ""
 
-#: aluno_detail.html:19 ocorrencia_detail.html:19
+#: aluno_detail.html:19 ocorrencia_detail.html:19 forms/aluno.py:11
 msgid "Turma"
-msgstr "Turma"
+msgstr ""
 
-#: aluno_detail.html:20
+#: aluno_detail.html:20 forms/aluno.py:12
 msgid "Curso"
-msgstr "Curso"
+msgstr ""
 
-#: aluno_detail.html:21 ocorrencia_detail.html:20
+#: aluno_detail.html:21 ocorrencia_detail.html:20 forms/aluno.py:13
 msgid "Matrícula"
-msgstr "Matrícula"
+msgstr ""
 
 #: aluno_detail.html:24 ocorrencia_detail.html:29
 msgid "Excluir"
-msgstr "Excluir"
+msgstr ""
 
 #: aluno_detail.html:29 aluno_form.html:40 aluno_list.html:27
 #: ocorrencia_detail.html:34 ocorrencia_form.html:40 ocorrencia_list.html:28
 msgid "Você não tem permissão para acessar esta página!"
-msgstr "Você não tem permissão para acessar esta página!"
+msgstr ""
 
 #: aluno_form.html:6
 msgid "Cadastro de Aluno"
-msgstr "Cadastro de Aluno"
+msgstr ""
 
 #: aluno_form.html:8
 msgid "Edição de Aluno"
-msgstr "Edição de Aluno"
+msgstr ""
 
 #: aluno_form.html:27 login.html:15 ocorrencia_form.html:27
 msgid "Ajuda"
-msgstr "Ajuda"
+msgstr ""
 
 #: aluno_form.html:37 ocorrencia_form.html:37 professor_form.html:40
 msgid "Salvar"
-msgstr "Salvar"
+msgstr ""
 
 #: aluno_list.html:6 base.html:23
 msgid "Alunos Cadastrados"
-msgstr "Alunos Cadastrados"
+msgstr ""
 
 #: base.html:22
 msgid "Novo Aluno"
-msgstr "Novo Aluno"
+msgstr ""
 
-#: base.html:25 base.html:32
+#: base.html:25 base.html.py:32
 msgid "Sair"
-msgstr "Sair"
+msgstr ""
 
 #: base.html:29
 msgid "Editar Perfil"
-msgstr "Editar Perfil"
+msgstr ""
 
 #: base.html:30
 msgid "Nova Ocorrência"
-msgstr "Nova Ocorrência"
+msgstr ""
 
 #: base.html:37
-msgid "Registre-se "
-msgstr "Registre-se "
+msgid "Registre-se"
+msgstr ""
 
-#: login.html:4 login.html:25
+#: login.html:4 login.html.py:25
 msgid "Entrar"
-msgstr "Entrar"
+msgstr ""
 
 #: ocorrencia_detail.html:5
 msgid "Dados da Ocorrência"
-msgstr "Dados da Ocorrência"
+msgstr ""
 
 #: ocorrencia_detail.html:17
 msgid "Professor"
-msgstr "Professor"
+msgstr ""
 
-#: ocorrencia_detail.html:18
+#: ocorrencia_detail.html:18 forms/ocorrencia.py:10
 msgid "Aluno"
-msgstr "Aluno"
+msgstr ""
 
-#: ocorrencia_detail.html:22
+#: ocorrencia_detail.html:22 forms/ocorrencia.py:11
 msgid "Disciplina"
-msgstr "Disciplina"
+msgstr ""
 
+#: ocorrencia_detail.html:24
+msgid "Descrição"
+msgstr ""
+
+#: ocorrencia_detail.html:25 forms/ocorrencia.py:13
+msgid "Hora"
+msgstr ""
+
+#: ocorrencia_detail.html:26 forms/ocorrencia.py:14
+msgid "Data"
+msgstr ""
+
+#: ocorrencia_form.html:6
+msgid "Cadastro de Ocorrência"
+msgstr ""
+
+#: ocorrencia_form.html:8
+msgid "Edição de Ocorrência"
+msgstr ""
+
+#: ocorrencia_list.html:6
+msgid "Sistema de Ocorrência"
+msgstr ""
+
+#: ocorrencia_list.html:7
+msgid "Ocorrências Registradas"
+msgstr ""
+
+#: professor_form.html:5
+msgid "Edição de Professor"
+msgstr ""
+
+#: professor_form.html:7
+msgid "Desativar Conta"
+msgstr ""
+
+#: professor_form.html:11
+msgid "Cadastro de Professor"
+msgstr ""

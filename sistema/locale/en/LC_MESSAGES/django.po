@@ -1,3 +1,4 @@
+# coding=utf-8
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
@@ -8,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-13 19:32-0300\n"
+"POT-Creation-Date: 2017-10-14 12:16-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,7 +57,7 @@ msgstr "error 404 - Page not found"
 #: 404.html:5 aluno_detail.html:30 aluno_form.html:41 aluno_list.html:28
 #: ocorrencia_detail.html:35 ocorrencia_form.html:41 ocorrencia_list.html:29
 msgid "Login"
-msgstr "Login"
+msgstr ""
 
 #: aluno_detail.html:5
 msgid "Perfil do Aluno"
@@ -66,27 +67,31 @@ msgstr "Student's Profile"
 msgid "Editar"
 msgstr "Edit"
 
-#: aluno_detail.html:16
+#: aluno_detail.html:16 forms/aluno.py:8
 msgid "Nome"
 msgstr "Name"
 
-#: aluno_detail.html:17
+#: aluno_detail.html:17 forms/aluno.py:9
 msgid "E-mail"
 msgstr "Email"
 
-#: aluno_detail.html:18
+#: aluno_detail.html:18 forms/aluno.py:10
 msgid "Telefone"
 msgstr "Phone"
 
-#: aluno_detail.html:19 ocorrencia_detail.html:19
+#: forms/ocorrencia.py:12
+msgid "Descrição da ocorrência"
+msgstr "Occurrence Description"
+
+#: aluno_detail.html:19 ocorrencia_detail.html:19 forms/aluno.py:11
 msgid "Turma"
 msgstr "Class"
 
-#: aluno_detail.html:20
+#: aluno_detail.html:20 forms/aluno.py:12
 msgid "Curso"
 msgstr "Course"
 
-#: aluno_detail.html:21 ocorrencia_detail.html:20
+#: aluno_detail.html:21 ocorrencia_detail.html:20 forms/aluno.py:13
 msgid "Matrícula"
 msgstr "Registration"
 
@@ -123,7 +128,7 @@ msgstr "Registered Students"
 msgid "Novo Aluno"
 msgstr "New Student"
 
-#: base.html:25 base.html:32
+#: base.html:25 base.html.py:32
 msgid "Sair"
 msgstr "Log Out"
 
@@ -136,10 +141,10 @@ msgid "Nova Ocorrência"
 msgstr "New Occurrence"
 
 #: base.html:37
-msgid "Registre-se "
+msgid "Registre-se"
 msgstr "Create an account"
 
-#: login.html:4 login.html:25
+#: login.html:4 login.html.py:25
 msgid "Entrar"
 msgstr "Login"
 
@@ -151,11 +156,50 @@ msgstr "Occurrence Data"
 msgid "Professor"
 msgstr "Teacher"
 
-#: ocorrencia_detail.html:18
+#: ocorrencia_detail.html:18 forms/ocorrencia.py:10
 msgid "Aluno"
 msgstr "Student"
 
-#: ocorrencia_detail.html:22
+#: ocorrencia_detail.html:22 forms/ocorrencia.py:11
 msgid "Disciplina"
 msgstr "Discipline"
 
+#: ocorrencia_detail.html:24
+msgid "Descrição"
+msgstr "Description"
+
+#: ocorrencia_detail.html:25 forms/ocorrencia.py:13
+msgid "Hora"
+msgstr "Hour"
+
+#: ocorrencia_detail.html:26 forms/ocorrencia.py:14
+msgid "Data"
+msgstr "Date"
+
+#: ocorrencia_form.html:6
+msgid "Cadastro de Ocorrência"
+msgstr "Occurrence Record"
+
+#: ocorrencia_form.html:8
+msgid "Edição de Ocorrência"
+msgstr "Edition of Occurrence"
+
+#: ocorrencia_list.html:6
+msgid "Sistema de Ocorrência"
+msgstr "Occurrence System"
+
+#: ocorrencia_list.html:7
+msgid "Ocorrências Registradas"
+msgstr "Registered Events"
+
+#: professor_form.html:5
+msgid "Edição de Professor"
+msgstr "Teacher Edition"
+
+#: professor_form.html:7
+msgid "Desativar Conta"
+msgstr "Deactivate account"
+
+#: professor_form.html:11
+msgid "Cadastro de Professor"
+msgstr "Teacher Registration"

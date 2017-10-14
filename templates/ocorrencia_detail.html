@@ -22,7 +22,7 @@
                 <li class="item"><p><span class="ui small header"> {% trans 'Disciplina' %}:</span>{{ ocorrencia.disciplina }}</p>
                 </li>
                 <li class="item"><p><span class="ui small header"> {% trans 'Descrição' %}:</span>{{ ocorrencia.descricao }}</p></li>
-                <li class="item"><p><span class="ui small header"> {% trans 'Hora:' %}</span>{{ ocorrencia.hora }}</p></li>
+                <li class="item"><p><span class="ui small header"> {% trans 'Hora' %}</span>{{ ocorrencia.hora }}</p></li>
                 <li class="item"><p><span class="ui small header"> {% trans 'Data' %}:</span>{{ ocorrencia.data }}</p></li>
             </ul>
             <form method="POST" action="{% url 'ocorrencia-delete' ocorrencia.id %}" class='ui form'>
