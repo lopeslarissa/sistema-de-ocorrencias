@@ -62,7 +62,7 @@ msgstr ""
 
 #: 404.html:5 aluno_detail.html:30 aluno_form.html:41 aluno_list.html:28
 #: ocorrencia_detail.html:35 ocorrencia_form.html:41 ocorrencia_list.html:29
-msgid "Login"
+msgid "Ínicio"
 msgstr ""
 
 #: aluno_detail.html:5

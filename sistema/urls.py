@@ -24,7 +24,6 @@ urlpatterns = [
 
     url(r'^login', login, {'template_name': 'login.html'}, name='login'),
     url(r'^logout', logout, {'next_page': '/login/'}, name='logout'),
-
-    url(r'^$', OcorrenciaListView.as_view(), name='index'),
+    url(r'^$', OcorrenciaListView.as_view(), name='home'),
     url(r'', TemplateView.as_view(template_name='404.html'), name='404'),
 ]

@@ -5,9 +5,10 @@ from django.views.generic import CreateView, DeleteView, DetailView, ListView, U
 from sistema.forms.aluno import AlunoForm
 from sistema.models.aluno import Aluno
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class AlunoCreateView(SuccessMessageMixin, CreateView):
+class AlunoCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """
     Cadastra um Aluno.
 
@@ -17,6 +18,7 @@ class AlunoCreateView(SuccessMessageMixin, CreateView):
     form_class = AlunoForm
     template_name = 'aluno_form.html'
     success_message = gettext_lazy('Aluno cadastrado com sucesso')
+    login_url = reverse_lazy('login')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -25,7 +27,7 @@ class AlunoCreateView(SuccessMessageMixin, CreateView):
         return super(AlunoCreateView, self).form_valid(form)
 
 
-class AlunoUpdateView(SuccessMessageMixin, UpdateView):
+class AlunoUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     """
     Atualiza os dados do Aluno selecionado.
 
@@ -35,6 +37,7 @@ class AlunoUpdateView(SuccessMessageMixin, UpdateView):
     form_class = AlunoForm
     template_name = 'aluno_form.html'
     success_message = gettext_lazy('Aluno atualizado com sucesso')
+    login_url = reverse_lazy('login')
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
@@ -43,7 +46,7 @@ class AlunoUpdateView(SuccessMessageMixin, UpdateView):
         return super(AlunoUpdateView, self).form_valid(form)
 
 
-class AlunoDeleteView(SuccessMessageMixin, DeleteView):
+class AlunoDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     """
     Desativa o Aluno selecionado.
 
@@ -52,6 +55,7 @@ class AlunoDeleteView(SuccessMessageMixin, DeleteView):
     queryset = Aluno.objects.filter(excluido=False)
     success_url = reverse_lazy('aluno-list')
     success_message = gettext_lazy('Aluno excluído com sucesso')
+    login_url = reverse_lazy('login')
 
 
     def form_valid(self, form):
@@ -61,7 +65,7 @@ class AlunoDeleteView(SuccessMessageMixin, DeleteView):
         return super(AlunoDeleteView, self).form_valid(form)
 
 
-class AlunoListView(ListView):
+class AlunoListView(LoginRequiredMixin, ListView):
     """
     Lista todos os Alunos, exceto os desativados.
 
@@ -69,9 +73,10 @@ class AlunoListView(ListView):
     """
     queryset = Aluno.objects.filter(excluido=False)
     template_name = 'aluno_list.html'
+    login_url = reverse_lazy('login')
 
 
-class AlunoDetailView(DetailView):
+class AlunoDetailView(LoginRequiredMixin, DetailView):
     """
     Exibe os dados do Aluno selecionado.
 
@@ -79,3 +84,4 @@ class AlunoDetailView(DetailView):
     """
     queryset = Aluno.objects.filter(excluido=False)
     template_name = 'aluno_detail.html'
+    login_url = reverse_lazy('login')
