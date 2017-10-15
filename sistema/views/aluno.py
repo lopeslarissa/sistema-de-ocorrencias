@@ -1,4 +1,5 @@
 # coding=utf-8
+from django.contrib import messages
 from django.urls import reverse_lazy
 from django.utils.translation import ugettext, gettext_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
@@ -56,13 +57,17 @@ class AlunoDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     success_url = reverse_lazy('aluno-list')
     success_message = gettext_lazy('Aluno excluído com sucesso')
     login_url = reverse_lazy('login')
-
+    template_name = 'aluno_confirm_delete.html'
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.excluido = True
         self.object.save()
         return super(AlunoDeleteView, self).form_valid(form)
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(AlunoDeleteView, self).delete(request, *args, **kwargs)
 
 
 class AlunoListView(LoginRequiredMixin, ListView):

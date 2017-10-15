@@ -18,6 +18,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: aluno_confirm_delete.html:7 professor_confirm_delete.html:7 ocorrencia_confirm_delete.html:7
+msgid "Deletar"
+msgstr "Delete"
+
+#: aluno_confirm_delete.html:6
+msgid "Você tem certeza que deseja excluir este aluno?"
+msgstr "Are you sure you want to delete this student?"
+
+#: professor_confirm_delete.html:6
+msgid "Você tem certeza que deseja excluir sua conta?"
+msgstr "Are you sure you want to delete your account?"
+
+#: ocorrencia_confirm_delete.html:6
+msgid "Você tem certeza que deseja excluir esta ocorrência?"
+msgstr "Are you sure you want to delete this occurrence?"
+
 #: views/aluno.py:19
 msgid "Aluno cadastrado com sucesso"
 msgstr "Student successfully registered"

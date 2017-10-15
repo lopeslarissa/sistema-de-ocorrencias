@@ -18,11 +18,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: aluno_confirm_delete.html:7 professor_confirm_delete.html:7 ocorrencia_confirm_delete.html:7
+msgid "Deletar"
+msgstr ""
+
+#: aluno_confirm_delete.html:6
+msgid "Você tem certeza que deseja excluir este aluno?"
+msgstr ""
+
+#: professor_confirm_delete.html:6
+msgid "Você tem certeza que deseja excluir sua conta?"
+msgstr ""
+
+#: ocorrencia_confirm_delete.html:6
+msgid "Você tem certeza que deseja excluir esta ocorrência?"
+msgstr ""
 
 #: forms/ocorrencia.py:12
 msgid "Descrição da ocorrência"
 msgstr ""
-
 
 #: views/aluno.py:19
 msgid "Aluno cadastrado com sucesso"

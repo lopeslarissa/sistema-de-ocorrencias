@@ -1,4 +1,5 @@
 # coding=utf-8
+from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
@@ -69,6 +70,7 @@ class ProfessorDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     queryset = Professor.objects.filter()
     success_url = reverse_lazy('login')
     login_url = reverse_lazy('login')
+    template_name = 'professor_confirm_delete.html'
 
     def get_object(self, queryset=None):
         obj = Professor.objects.get(pk=self.request.user.id)
@@ -80,6 +82,10 @@ class ProfessorDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         self.object.save()
         logout(self.request)
         return super(ProfessorDeleteView, self).form_valid(form)
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(ProfessorDeleteView, self).delete(request, *args, **kwargs)
 
 
 

@@ -1,4 +1,5 @@
 # coding=utf-8
+from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 from django.utils.translation import ugettext, gettext_lazy
 from sistema.models.professor import Professor
@@ -58,12 +59,17 @@ class OcorrenciaDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     success_url = reverse_lazy('ocorrencia-list')
     success_message = gettext_lazy('Ocorrência deletada com sucesso')
     login_url = reverse_lazy('login')
+    template_name = 'ocorrencia_confirm_delete.html'
 
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.excluido = True
         self.object.save()
         return super(OcorrenciaDeleteView, self).form_valid(form)
+
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, self.success_message)
+        return super(OcorrenciaDeleteView, self).delete(request, *args, **kwargs)
 
 
 class OcorrenciaListView(LoginRequiredMixin, ListView):
