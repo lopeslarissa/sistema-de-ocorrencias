@@ -1,6 +1,7 @@
 # Desenvolvimento Web II - Projeto de Sufiência 
 
-Servidor Web: [Ocorrência](http://lopes.pythonanywhere.com/)
+[Servidor Web](http://lopes.pythonanywhere.com/)
+[Documentação](http://ocorrencia.readthedocs.io/en/latest/index.html)  
 
 
 # Instalação:
@@ -10,12 +11,6 @@ Servidor Web: [Ocorrência](http://lopes.pythonanywhere.com/)
 	$ python manage.py make migrate
 	$ python manapy.py populate_db_ocorrencia (opcional)
 	$ python manage.py compilemessages 
-	
-# Documentação:
-	$ cd doc
-	$ make html
-- Acesse o diretório sistena/docs/_build/html/
-- Abra o documento index.html com seu navegador
 	
 ## Requisitos do Projeto
 
