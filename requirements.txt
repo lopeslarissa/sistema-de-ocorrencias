@@ -2,6 +2,7 @@ alabaster==0.7.10
 Babel==2.5.1
 certifi==2017.7.27.1
 chardet==3.0.4
+coverage==3.6
 Django==1.11.6
 docutils==0.14
 idna==2.6
