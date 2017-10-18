@@ -1,6 +1,5 @@
 # coding=utf-8
 from django.test import TestCase
-
 from sistema.forms.professor import ProfessorForm
 from sistema.forms.ocorrencia import OcorrenciaForm
 from sistema.forms.aluno import AlunoForm
@@ -55,24 +54,25 @@ class OcorrenciaFormTest(TestCase):
                                      curso='BSI', matricula='2565874')
 
         ocorrencia = Ocorrencia.objects.create(aluno=aluno, professor=professor, disciplina=u'matemática',
-                                               descricao=u'aluno chegou atrasado', data=timezone.datetime.today(),
+                                               descricao=u'aluno chegou atrasado', data=u'2015-02-25',
                                                hora=timezone.now())
 
         data = {'aluno': ocorrencia.aluno, 'professor': ocorrencia.professor, 'disciplina': ocorrencia.disciplina,
                 'descricao': ocorrencia.descricao, 'data': ocorrencia.data,
                 'hora': ocorrencia.hora, }
+
         form = OcorrenciaForm(data=data)
         self.assertTrue(form.is_valid())
 
     def test_invalid_form(self):
         professor = Professor.objects.create(first_name=u'Natália', last_name=u'Caroline',
-                                             email=u'natalia@gmail.com', password='1234', username='ana')
+                                             email=u'natalia@gmail.com', password='1234', username='duda')
 
         aluno = Aluno.objects.create(nome=u'Maria', email=u'maria@gmail.com', telefone='4799082190', turma='BSI6',
                                      curso='BSI', matricula='2565874')
 
-        ocorrencia = Ocorrencia.objects.create(aluno=aluno, professor=professor, disciplina=u'',
-                                               descricao=u'', data='',
+        ocorrencia = Ocorrencia.objects.create(aluno=aluno, disciplina=u'', professor=professor,
+                                               descricao=u'', data=u'2015-02-25',
                                                hora=timezone.now())
 
         data = {'aluno': ocorrencia.aluno, 'professor': ocorrencia.professor, 'disciplina': ocorrencia.disciplina,
