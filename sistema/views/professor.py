@@ -1,15 +1,15 @@
 # coding=utf-8
+"""Views de Professor"""
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
-from django.utils.translation import ugettext, gettext_lazy
-from django.views.generic import CreateView
-from django.views.generic import DeleteView
-from django.views.generic import UpdateView
+from django.utils.translation import gettext_lazy
+from django.views.generic import CreateView, DeleteView, UpdateView
 from django.contrib.auth import login, logout, authenticate
-from sistema.forms.professor import *
 from django.contrib.auth.mixins import LoginRequiredMixin
+from sistema.forms.professor import ProfessorForm, ProfessorEditForm
+from sistema.models.professor import Professor
 
 
 class ProfessorCreateView(SuccessMessageMixin, CreateView):
@@ -86,6 +86,3 @@ class ProfessorDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
         return super(ProfessorDeleteView, self).delete(request, *args, **kwargs)
-
-
-

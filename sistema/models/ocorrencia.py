@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
+"""Model de Ocorrência"""
 from django.db import models
 from django.urls import reverse
-from django.urls import reverse_lazy
-
 from sistema.models.aluno import Aluno
 from sistema.models.professor import Professor
 
@@ -25,10 +24,11 @@ class Ocorrencia(models.Model):
     data = models.DateField()
     excluido = models.BooleanField(verbose_name="Excluído", default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return '%s' % self.descricao
 
     def get_absolute_url(self):
+        """Método para obter a url absoluta"""
         return reverse('ocorrencia-detail', kwargs={'pk': self.pk})
 
     class Meta:

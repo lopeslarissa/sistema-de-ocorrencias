@@ -1,4 +1,5 @@
 # coding: utf-8
+"""Model de Aluno"""
 from django.db import models
 from django.urls import reverse
 
@@ -21,10 +22,11 @@ class Aluno(models.Model):
     matricula = models.CharField(max_length=250)
     excluido = models.BooleanField(verbose_name='Excluído', default=False)
 
-    def __unicode__(self):
+    def __str__(self):
         return u'%s' % self.nome
 
     def get_absolute_url(self):
+        """Método para obter a url absoluta"""
         return reverse('aluno-detail', kwargs={'pk': self.pk})
 
     class Meta:

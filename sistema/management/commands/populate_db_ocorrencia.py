@@ -1,13 +1,15 @@
 # coding: utf-8
+"""Populate"""
+from datetime import datetime
 from django.contrib.auth.models import User
 from django.core.management.base import BaseCommand
 from sistema.models.professor import Professor
 from sistema.models.aluno import Aluno
 from sistema.models.ocorrencia import Ocorrencia
-from datetime import datetime
 
 
 class Command(BaseCommand):
+    """Populate Banco Ocorrência"""
     args = u'Nenhum argumento necessário'
     help = u'populate para a base do sistema Ocorrência'
 
@@ -113,44 +115,49 @@ class Command(BaseCommand):
                                                       matricula='89192', )
         aluno8.save()
 
-        ocorrencia1, created = Ocorrencia.objects.get_or_create(professor=professor1,
-                                                                aluno=aluno1,
-                                                                disciplina='Matemática',
-                                                                descricao='Aluno faltou mais de 3 dias seguidos',
-                                                                hora=datetime.now().time(),
-                                                                data=datetime.now().date(), )
+        ocorrencia1, created = Ocorrencia.objects.get_or_create(
+            professor=professor1,
+            aluno=aluno1,
+            disciplina='Matemática',
+            descricao='Aluno faltou mais de 3 dias seguidos',
+            hora=datetime.now().time(),
+            data=datetime.now().date(), )
         ocorrencia1.save()
 
-        ocorrencia2, created = Ocorrencia.objects.get_or_create(professor=professor2,
-                                                                aluno=aluno2,
-                                                                disciplina='Português',
-                                                                descricao='Aluno atrapalhou a aula',
-                                                                hora=datetime.now().time(),
-                                                                data=datetime.now().date(), )
+        ocorrencia2, created = Ocorrencia.objects.get_or_create(
+            professor=professor2,
+            aluno=aluno2,
+            disciplina='Português',
+            descricao='Aluno atrapalhou a aula',
+            hora=datetime.now().time(),
+            data=datetime.now().date(), )
         ocorrencia2.save()
 
-        ocorrencia3, created = Ocorrencia.objects.get_or_create(professor=professor3,
-                                                                aluno=aluno3,
-                                                                disciplina='Biologia',
-                                                                descricao='Aluno brigou com outro aluno durante a aula',
-                                                                hora=datetime.now().time(),
-                                                                data=datetime.now().date(), )
+        ocorrencia3, created = Ocorrencia.objects.get_or_create(
+            professor=professor3,
+            aluno=aluno3,
+            disciplina='Biologia',
+            descricao='Aluno brigou com outro aluno durante a aula',
+            hora=datetime.now().time(),
+            data=datetime.now().date(), )
         ocorrencia3.save()
 
-        ocorrencia4, created = Ocorrencia.objects.get_or_create(professor=professor1,
-                                                                aluno=aluno4,
-                                                                disciplina='Banco de Dados',
-                                                                descricao='Aluno dormiu em sala de aula',
-                                                                hora=datetime.now().time(),
-                                                                data=datetime.now().date(), )
+        ocorrencia4, created = Ocorrencia.objects.get_or_create(
+            professor=professor1,
+            aluno=aluno4,
+            disciplina='Banco de Dados',
+            descricao='Aluno dormiu em sala de aula',
+            hora=datetime.now().time(),
+            data=datetime.now().date(), )
         ocorrencia4.save()
 
-        ocorrencia5, created = Ocorrencia.objects.get_or_create(professor=professor2,
-                                                                aluno=aluno5,
-                                                                disciplina='Biologia',
-                                                                descricao='Aluno desistiu da matéria',
-                                                                hora=datetime.now().time(),
-                                                                data=datetime.now().date(), )
+        ocorrencia5, created = Ocorrencia.objects.get_or_create(
+            professor=professor2,
+            aluno=aluno5,
+            disciplina='Biologia',
+            descricao='Aluno desistiu da matéria',
+            hora=datetime.now().time(),
+            data=datetime.now().date(), )
         ocorrencia5.save()
 
     def handle(self, *args, **options):

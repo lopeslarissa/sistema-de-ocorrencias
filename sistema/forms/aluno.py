@@ -1,10 +1,12 @@
 # coding=utf-8
+"""Formulário de aluno"""
+from django import forms
 from django.utils.translation import gettext_lazy
 from sistema.models.aluno import Aluno
-from django import forms
 
 
 class AlunoForm(forms.ModelForm):
+    """Formulário de cadastro de aluno"""
     nome = forms.CharField(max_length=250, label=gettext_lazy("Nome"))
     email = forms.EmailField(label=gettext_lazy("E-mail"))
     telefone = forms.CharField(max_length=11, label=gettext_lazy('Telefone'))
@@ -16,4 +18,3 @@ class AlunoForm(forms.ModelForm):
         model = Aluno
         fields = "__all__"
         exclude = ('excluido',)
-

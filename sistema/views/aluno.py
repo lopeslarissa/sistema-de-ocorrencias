@@ -1,12 +1,13 @@
 # coding=utf-8
-from django.contrib import messages
+"""Views de Aluno"""
 from django.urls import reverse_lazy
-from django.utils.translation import ugettext, gettext_lazy
+from django.utils.translation import gettext_lazy
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from sistema.forms.aluno import AlunoForm
 from sistema.models.aluno import Aluno
-from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class AlunoCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):

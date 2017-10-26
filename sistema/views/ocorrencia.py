@@ -1,12 +1,14 @@
 # coding=utf-8
+"""Views de Ocorrência"""
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext_lazy
-from sistema.models.professor import Professor
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
-from sistema.forms.ocorrencia import *
-from django.contrib.auth.mixins import LoginRequiredMixin
+from sistema.forms.ocorrencia import OcorrenciaForm
+from sistema.models.ocorrencia import Ocorrencia
+from sistema.models.professor import Professor
 
 
 class OcorrenciaCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
@@ -93,6 +95,3 @@ class OcorrenciaDetailView(LoginRequiredMixin, DetailView):
     queryset = Ocorrencia.objects.filter(excluido=False)
     template_name = 'ocorrencia_detail.html'
     login_url = reverse_lazy('login')
-
-
-
