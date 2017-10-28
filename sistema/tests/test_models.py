@@ -28,7 +28,7 @@ class AlunoTest(TestCase):
         """Método que testa a criação de aluno"""
         aluno = self.create_aluno()
         self.assertTrue(isinstance(aluno, Aluno))
-        self.assertEqual(aluno.__str__(), aluno.nome)
+        self.assertEqual(aluno.__unicode__(), aluno.nome)
 
 
 class ProfessorTest(TestCase):
@@ -50,7 +50,7 @@ class ProfessorTest(TestCase):
         """Método que testa a criação de professor"""
         professor = self.create_professor()
         self.assertTrue(isinstance(professor, Professor))
-        self.assertEqual(professor.__str__(), professor.first_name)
+        self.assertEqual(professor.__unicode__(), professor.first_name)
 
 
 class OcorrenciaTest(TestCase):
@@ -86,4 +86,4 @@ class OcorrenciaTest(TestCase):
         """Método que testa a criação de ocorrêcia"""
         ocorrencia = self.create_ocorrencia()
         self.assertTrue(isinstance(ocorrencia, Ocorrencia))
-        self.assertEqual(ocorrencia.__str__(), ocorrencia.descricao)
+        self.assertEqual(ocorrencia.__unicode__(), ocorrencia.descricao)

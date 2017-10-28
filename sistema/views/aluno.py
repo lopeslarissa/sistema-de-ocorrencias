@@ -80,6 +80,7 @@ class AlunoListView(LoginRequiredMixin, ListView):
     queryset = Aluno.objects.filter(excluido=False)
     template_name = 'aluno_list.html'
     login_url = reverse_lazy('login')
+    paginate_by = 5
 
 
 class AlunoDetailView(LoginRequiredMixin, DetailView):

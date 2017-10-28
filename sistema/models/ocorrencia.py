@@ -24,7 +24,7 @@ class Ocorrencia(models.Model):
     data = models.DateField()
     excluido = models.BooleanField(verbose_name="Excluído", default=False)
 
-    def __str__(self):
+    def __unicode__(self):
         return '%s' % self.descricao
 
     def get_absolute_url(self):

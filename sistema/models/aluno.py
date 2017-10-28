@@ -22,7 +22,7 @@ class Aluno(models.Model):
     matricula = models.CharField(max_length=250)
     excluido = models.BooleanField(verbose_name='Excluído', default=False)
 
-    def __str__(self):
+    def __unicode__(self):
         return u'%s' % self.nome
 
     def get_absolute_url(self):

@@ -9,7 +9,7 @@ class Professor(User):
     Model abstrata do django
     """
 
-    def __str__(self):
+    def __unicode__(self):
         return self.first_name
 
     def get_absolute_url(self):

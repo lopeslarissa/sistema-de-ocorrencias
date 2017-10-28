@@ -83,6 +83,7 @@ class OcorrenciaListView(LoginRequiredMixin, ListView):
     queryset = Ocorrencia.objects.filter(excluido=False)
     template_name = 'ocorrencia_list.html'
     login_url = reverse_lazy('login')
+    paginate_by = 5
 
 
 class OcorrenciaDetailView(LoginRequiredMixin, DetailView):

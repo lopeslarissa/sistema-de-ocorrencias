@@ -45,6 +45,7 @@ class ProfessorUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'professor_form.html'
     success_message = gettext_lazy('Seu perfil foi atualizado com sucesso')
     login_url = reverse_lazy('login')
+    success_url = '/editar-professor/'
 
     def get_object(self, queryset=None):
         obj = User.objects.get(pk=self.request.user.id)

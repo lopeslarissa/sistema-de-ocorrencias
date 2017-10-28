@@ -23,6 +23,7 @@
                 {%endfor %}
             </ul>
         </div>
+        {% include "paginacao.html" %}
     {% else %}
         <h4>{% trans 'Você não tem permissão para acessar esta página!' %}</h4>
         <a href="{% url 'home' %}">{% trans 'Ínicio' %}</a><br/>
