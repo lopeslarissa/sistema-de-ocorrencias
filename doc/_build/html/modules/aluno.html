@@ -159,6 +159,7 @@
             
   <div class="section" id="module-sistema.models.aluno">
 <span id="aluno"></span><h1>Aluno<a class="headerlink" href="#module-sistema.models.aluno" title="Link permanente para este título">¶</a></h1>
+<p>Model de Aluno</p>
 <dl class="class">
 <dt id="sistema.models.aluno.Aluno">
 <em class="property">class </em><code class="descclassname">sistema.models.aluno.</code><code class="descname">Aluno</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#sistema.models.aluno.Aluno" title="Link permanente para esta definição">¶</a></dt>
@@ -179,9 +180,16 @@
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="sistema.models.aluno.Aluno.get_absolute_url">
+<code class="descname">get_absolute_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sistema.models.aluno.Aluno.get_absolute_url" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método para obter a url absoluta</p>
 </dd></dl>
 
-<span class="target" id="module-sistema.views.aluno"></span><dl class="class">
+</dd></dl>
+
+<span class="target" id="module-sistema.views.aluno"></span><p>Views de Aluno</p>
+<dl class="class">
 <dt id="sistema.views.aluno.AlunoCreateView">
 <em class="property">class </em><code class="descclassname">sistema.views.aluno.</code><code class="descname">AlunoCreateView</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#sistema.views.aluno.AlunoCreateView" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Cadastra um Aluno.</p>
@@ -197,6 +205,12 @@
 <dt id="sistema.views.aluno.AlunoCreateView.model">
 <code class="descname">model</code><a class="headerlink" href="#sistema.views.aluno.AlunoCreateView.model" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>apelido de <code class="xref py py-class docutils literal"><span class="pre">Aluno</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sistema.views.aluno.AlunoCreateView.form_class">
+<code class="descname">form_class</code><a class="headerlink" href="#sistema.views.aluno.AlunoCreateView.form_class" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>apelido de <code class="xref py py-class docutils literal"><span class="pre">AlunoForm</span></code></p>
 </dd></dl>
 
 </dd></dl>
@@ -217,6 +231,12 @@
 <dt id="sistema.views.aluno.AlunoUpdateView.model">
 <code class="descname">model</code><a class="headerlink" href="#sistema.views.aluno.AlunoUpdateView.model" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>apelido de <code class="xref py py-class docutils literal"><span class="pre">Aluno</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sistema.views.aluno.AlunoUpdateView.form_class">
+<code class="descname">form_class</code><a class="headerlink" href="#sistema.views.aluno.AlunoUpdateView.form_class" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>apelido de <code class="xref py py-class docutils literal"><span class="pre">AlunoForm</span></code></p>
 </dd></dl>
 
 </dd></dl>

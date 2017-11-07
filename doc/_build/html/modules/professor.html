@@ -159,13 +159,21 @@
             
   <div class="section" id="module-sistema.models.professor">
 <span id="professor"></span><h1>Professor<a class="headerlink" href="#module-sistema.models.professor" title="Link permanente para este título">¶</a></h1>
+<p>Model de Professor</p>
 <dl class="class">
 <dt id="sistema.models.professor.Professor">
 <em class="property">class </em><code class="descclassname">sistema.models.professor.</code><code class="descname">Professor</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#sistema.models.professor.Professor" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Model abstrata do django</p>
+<dl class="method">
+<dt id="sistema.models.professor.Professor.get_absolute_url">
+<code class="descname">get_absolute_url</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sistema.models.professor.Professor.get_absolute_url" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>Método para obter a url absoluta</p>
 </dd></dl>
 
-<span class="target" id="module-sistema.views.professor"></span><dl class="class">
+</dd></dl>
+
+<span class="target" id="module-sistema.views.professor"></span><p>Views de Professor</p>
+<dl class="class">
 <dt id="sistema.views.professor.ProfessorCreateView">
 <em class="property">class </em><code class="descclassname">sistema.views.professor.</code><code class="descname">ProfessorCreateView</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#sistema.views.professor.ProfessorCreateView" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>Cadastra um Professor.</p>
@@ -181,6 +189,12 @@
 <dt id="sistema.views.professor.ProfessorCreateView.model">
 <code class="descname">model</code><a class="headerlink" href="#sistema.views.professor.ProfessorCreateView.model" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>apelido de <code class="xref py py-class docutils literal"><span class="pre">Professor</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sistema.views.professor.ProfessorCreateView.form_class">
+<code class="descname">form_class</code><a class="headerlink" href="#sistema.views.professor.ProfessorCreateView.form_class" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>apelido de <code class="xref py py-class docutils literal"><span class="pre">ProfessorForm</span></code></p>
 </dd></dl>
 
 </dd></dl>
@@ -201,6 +215,12 @@
 <dt id="sistema.views.professor.ProfessorUpdateView.model">
 <code class="descname">model</code><a class="headerlink" href="#sistema.views.professor.ProfessorUpdateView.model" title="Link permanente para esta definição">¶</a></dt>
 <dd><p>apelido de <code class="xref py py-class docutils literal"><span class="pre">Professor</span></code></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sistema.views.professor.ProfessorUpdateView.form_class">
+<code class="descname">form_class</code><a class="headerlink" href="#sistema.views.professor.ProfessorUpdateView.form_class" title="Link permanente para esta definição">¶</a></dt>
+<dd><p>apelido de <code class="xref py py-class docutils literal"><span class="pre">ProfessorEditForm</span></code></p>
 </dd></dl>
 
 </dd></dl>

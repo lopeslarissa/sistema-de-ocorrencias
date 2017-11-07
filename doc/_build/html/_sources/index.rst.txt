@@ -10,3 +10,7 @@ Documentação Projeto Ocorrência
     modules/aluno
     modules/professor
     modules/ocorrencia
+
+.. figure:: diagrama_ocorrencia.jpg
+   :scale: 100 %
+   :alt: diagrama de classe
