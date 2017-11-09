@@ -9,6 +9,7 @@ from sistema.models.aluno import Aluno
 
 class AlunoTest(TestCase):
     """Teste de Model de Aluno"""
+
     def create_aluno(self,
                      nome=u'Maria',
                      email=u'maria@gmail.com',
@@ -33,6 +34,7 @@ class AlunoTest(TestCase):
 
 class ProfessorTest(TestCase):
     """Teste de Model de Professor"""
+
     def create_professor(self,
                          first_name=u'Natália',
                          last_name=u'Caroline',
@@ -55,17 +57,16 @@ class ProfessorTest(TestCase):
 
 class OcorrenciaTest(TestCase):
     """Teste de Model de Ocorrência"""
-    professor = Professor.objects.create(first_name=u'Natália',
-                                         last_name=u'Caroline',
-                                         email=u'natalia@gmail.com',
-                                         password='1234',
-                                         username=u'olivia')
-    aluno = Aluno.objects.create(nome=u'Maria',
-                                 email=u'maria@gmail.com',
-                                 telefone='4799082190',
-                                 turma='BSI6',
-                                 curso='BSI',
-                                 matricula='2565874')
+    professor, created = Professor.objects.get_or_create(first_name=u'Larissa',
+                                                         last_name=u'Lopes',
+                                                         email=u'larissa@gmail.com',
+                                                         username=u'larissa', )
+    aluno, created = Aluno.objects.get_or_create(nome=u'Natália Caroline',
+                                                 email=u'natalia@gmail.com',
+                                                 telefone=u'47123456789',
+                                                 turma=u'BSI1',
+                                                 curso=u'BSI',
+                                                 matricula=u'12534', )
 
     def create_ocorrencia(self,
                           aluno=aluno,
