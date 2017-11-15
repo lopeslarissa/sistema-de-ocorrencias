@@ -14,3 +14,7 @@ Documentação Projeto Ocorrência
 .. figure:: diagrama_ocorrencia.jpg
    :scale: 100 %
    :alt: diagrama de classe
+
+.. figure:: coverage_report_ocorrencia.png
+   :scale: 100 %
+   :alt: coverage report
